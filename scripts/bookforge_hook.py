@@ -19,6 +19,7 @@ import json
 import os
 import re
 import select
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -196,14 +197,38 @@ def check_pack_complete(genre: str) -> tuple[bool, list[str]]:
     return not missing, missing
 
 
+def bootstrap_workspace() -> str | None:
+    """Copy the plugin's capability-library-template into the author's
+    workspace once, on first use. This is workspace-level (not tied to any
+    single project), so it runs unconditionally at SessionStart rather than
+    inside /start-book-project. Idempotent: skipped once the target exists.
+    Returns a short message if it acted, else None.
+    """
+    target = PROJECT_ROOT / "capability-library"
+    if target.exists():
+        return None
+    source = PLUGIN_ROOT / "capability-library-template"
+    if not source.exists():
+        return None
+    shutil.copytree(source, target)
+    return f"Bootstrapped {target.relative_to(PROJECT_ROOT)} from plugin template"
+
+
 def hook_session_start(payload: dict[str, Any]) -> int:
+    bootstrap_note = bootstrap_workspace()
     pid, pdir, meta = active_project()
     if not pid:
-        return ok("BookForge session started without active project")
+        message = "BookForge session started without active project"
+        if bootstrap_note:
+            message += f"; {bootstrap_note}"
+        return ok(message)
     if not pdir:
         return review(f"Active project '{pid}' is configured but missing")
     genre = active_pack(pdir, meta).get("primary_genre")
-    return ok(f"BookForge session started for {pid} ({genre or 'genre-unset'})", pdir, "session-start")
+    message = f"BookForge session started for {pid} ({genre or 'genre-unset'})"
+    if bootstrap_note:
+        message += f"; {bootstrap_note}"
+    return ok(message, pdir, "session-start")
 
 
 def hook_project_context_loader(payload: dict[str, Any]) -> int:

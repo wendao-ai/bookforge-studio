@@ -43,32 +43,24 @@ claude --plugin-dir /path/to/bookforge-studio-plugin
 /plugin install bookforge-studio@bookforge-studio
 ```
 
-## ⚠️ 安装后必须做的两件事
+## 工作区自举（无需手动步骤）
 
-插件只携带**可复用的工具与范式**，不携带你的具体图书项目和跨项目积累的经验——这些属于你自己的工作区（`$CLAUDE_PROJECT_DIR`），需要你在第一次使用时手动初始化：
+插件只携带**可复用的工具与范式**，不携带你的具体图书项目和跨项目积累的经验——这些属于你自己的工作区（`$CLAUDE_PROJECT_DIR`）。你**不需要**手动创建或复制任何目录，插件会在你实际用到时自动搭好：
 
-1. **建工作区 `projects/` 目录**：从插件的 `projects-template/` 复制到你工作区根目录，至少保留 `_template`：
-   ```bash
-   cp -R <plugin-root>/projects-template ./projects
-   ```
-2. **建工作区 `capability-library/` 目录**：从插件的 `capability-library-template/` 复制：
-   ```bash
-   cp -R <plugin-root>/capability-library-template ./capability-library
-   ```
-3. **把运营原则写进你工作区的 `CLAUDE.md`**：参见 [`docs/operating-principles.md`](docs/operating-principles.md)，里面有可直接粘贴的协作协议与硬性规则。
+- **`capability-library/`**：`SessionStart` hook 在检测到工作区还没有这个目录时，自动从插件的 `capability-library-template/` 复制一份过去（每个工作区只做一次，已存在则跳过）。
+- **`projects/<project-id>/`**：第一次跑 `/start-book-project` 时，由该 skill 从插件的 `projects-template/_template/` 复制出对应的新项目骨架——不需要你自己 `mkdir`/`cp`。`projects-template/` 里的 6 个 `sample-*` 只是给你（和 Claude）参考的示例，不会被自动复制。
+- **`CLAUDE.md` 运营原则**：`/start-book-project` 首次运行时会检查你工作区根目录的 `CLAUDE.md` 是否已包含 BookForge 的协作协议；如果没有，会询问你是否要把 [`docs/operating-principles.md`](docs/operating-principles.md) 里的内容追加进去——这一步需要你确认，插件不会静默改写你自己的 `CLAUDE.md`。
 
-插件的 hooks 通过 `$CLAUDE_PROJECT_DIR`（你的工作区）与 `$CLAUDE_PLUGIN_ROOT`（本插件安装位置）区分"你的书"和"插件自带的范式资产"——前者可写，后者是只读的共享参考资料，`project-isolation-guard` 不允许把它当写入目标。
+插件的 hooks 通过 `$CLAUDE_PROJECT_DIR`（你的工作区，前面这些自举产物都写在这里）与 `$CLAUDE_PLUGIN_ROOT`（本插件安装位置，只读参考资料）区分"你的书"和"插件自带的范式资产"，`project-isolation-guard` 不允许把插件安装目录当写入目标。
 
 ## 快速开始
 
-1. 完成上面的"安装后必须做的两件事"。
-2. 在 Claude Code 中打开你的工作区目录（不是插件安装目录）。
-3. 在 `projects/` 下选择或新建一个图书项目；通过 `BOOKFORGE_PROJECT=<project-id>` 环境变量或 `projects/_current_project.yaml` 设定活动项目。
-4. 从 `/start-book-project` 开始。
-5. 从构思进入大纲前，必须先确认类型。
-6. （可选）在 ideation 阶段做写书前调研三支柱：`/deep-topic-research` 建可追溯知识库、`/benchmark-corpus-research` 学习对标书风格、`/editorial-acquisition` 做选题论证。
-7. 按顺序使用各阶段 skill；当活动类型有要求时，不得跳过人工审校门。
-8. V3 定稿后用 `/export-docx` 基础导出；需投稿级精排用 `/typeset-docx-elegant`。
+1. 在 Claude Code 中打开你的工作区目录（不是插件安装目录）——插件已安装即可，无需预建任何文件。
+2. 从 `/start-book-project` 开始：告诉 Claude 你的书的想法，第一次运行会自动创建 `projects/<project-id>/` 并引导你确认要不要往 `CLAUDE.md` 追加运营原则。
+3. 从构思进入大纲前，必须先确认类型。
+4. （可选）在 ideation 阶段做写书前调研三支柱：`/deep-topic-research` 建可追溯知识库、`/benchmark-corpus-research` 学习对标书风格、`/editorial-acquisition` 做选题论证。
+5. 按顺序使用各阶段 skill；当活动类型有要求时，不得跳过人工审校门。
+6. V3 定稿后用 `/export-docx` 基础导出；需投稿级精排用 `/typeset-docx-elegant`。
 
 ## 插件内容导航
 
@@ -83,8 +75,8 @@ claude --plugin-dir /path/to/bookforge-studio-plugin
 | `docs/` | Studio 的运行协议文档，含 `operating-principles.md`（供你复制进项目 CLAUDE.md） |
 | `rules/` | 各类产物（constitution/outline/chapter-draft/registry/review/typeset/genre-memory-* 等）的强制标准与反模式 |
 | `shared-tooling/` | 责编协作协议、风格语料调研说明 |
-| `capability-library-template/` | 能力库空骨架模板（不含真实项目沉淀内容，复制到你工作区变成 `capability-library/`） |
-| `projects-template/` | `_template` + 6 个 `sample-*` 类型示例项目，复制到你工作区变成 `projects/` |
+| `capability-library-template/` | 能力库空骨架模板（不含真实项目沉淀内容）；`SessionStart` hook 首次运行时自动复制到你工作区的 `capability-library/`，无需手动操作 |
+| `projects-template/` | `_template`（新项目骨架，`/start-book-project` 首次运行时自动复制到 `projects/<project-id>/`）+ 6 个 `sample-*` 类型示例项目（仅供参考，不会被自动复制） |
 
 ### 关于未接线的 hook 脚本
 
