@@ -1,0 +1,74 @@
+---
+bundle_id: "kbundle-{date}-{topic}-{seq}"
+direction: "{调研方向名}"
+request_ref: "knowledge-requests/{direction}.md"
+created_at: "{YYYY-MM-DD}"
+knowledge_coverage: "{sufficient | partial | insufficient}"
+---
+
+# KnowledgeBundle — {调研方向名}
+
+> 本文件汇总一个调研方向的全部高质量发现，**喂给宪法**。
+> strongest_findings / decision_impact 是回填 concept_tree 与 brief 的直接来源。
+> knowledge_coverage = insufficient 时，禁止把本方向写成高置信结论、禁止回填核心论点。
+
+## coverage（来源覆盖）
+
+```yaml
+coverage:
+  requested_sources: [academic, cross-domain, trends, realtime]
+  fulfilled_sources: [{实际覆盖}]
+  missing_sources:
+    - source: "{缺失的源}"
+      reason: "{为什么没覆盖}"
+```
+
+## top_items（指向 source-note）
+
+```yaml
+top_items: ["ki-001", "ki-002", "ki-003"]
+```
+
+## injection_summary
+
+### strongest_findings（最强发现——可回填论据）
+
+- {发现 1（confidence: observed/inferred，带数字与 source-note 指针）}
+- {发现 2}
+- {发现 3}
+
+### transfer_hypotheses（迁移/外推假设——须标 confidence）
+
+- {迁移假设 1（speculated，待四项检验）}
+
+### decision_impact（对本书的影响——直接喂宪法）
+
+```yaml
+decision_impact:
+  - target: "concept_tree.json"
+    action: "新增节点：{节点名}"
+    basis: "sources/academic/ki-003.md"
+  - target: "brief.yaml 核心论点"
+    action: "论点可主张：{...}"
+    basis: "bundles/{direction}.yaml"
+    confidence: "{observed | inferred}"
+  - target: "brief.yaml uniqueness_anchor"
+    action: "差异化：本书讲到 D{?}，现有书停在 D{?}"
+    basis: "..."
+```
+
+### risks（风险与待验证）
+
+- {迁移假设需草稿期验证}
+- {证据强度限制 / sample size / 时效}
+- {冲突未决点}
+
+## 一句话结论（用于作者确认）
+
+> {本方向调研后，对本书核心论点的最关键支撑是：____；现有书最大的盲区是：____。}
+
+## 作者确认
+
+- [ ] strongest_findings 与 decision_impact 经作者确认
+- [ ] 确认事件已记录到 `constitution/dialogue_log.jsonl`
+- [ ] 回填 concept_tree / brief 已登记到 `research-log.md`

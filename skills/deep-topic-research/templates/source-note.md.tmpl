@@ -1,0 +1,62 @@
+---
+item_id: "ki-{date}-{topic}-{seq}"
+source: "{academic | report | cross-domain | realtime | anchor-asset}"
+title: "{资料标题}"
+finding: "{可注入本书论断的具体发现——非泛泛背景，一句话能说清它证明了什么}"
+
+url_or_citation: "{DOI/URL/报告编号/内部路径}"
+publication_date: "{YYYY-MM}"
+retrieved_at: "{YYYY-MM-DD}"
+freshness: "{YYYY-Qn}"
+freshness_status: "{fresh | aging | stale | expired}"
+
+principle_mapping:
+  primary_principle: "{对应的第一性原理（学科+机制+指标）}"
+  mechanisms: ["{机制词1}", "{机制词2}"]
+  measurable_variables: ["{指标1}", "{指标2}"]
+
+scores:
+  source_credibility: 0.0      # C：期刊/官方/标准 > 预印本 > 白皮书 > 媒体 > 未知
+  evidence_strength: 0.0       # E：可复现/标准条文 > 定量数据 > 案例 > 专家观点 > 纯结论
+  relevance: 0.0               # R：命中 原理+机制+指标+场景 的层数
+  freshness: 0.0               # F：在该源阈值内
+  transferability: 0.0         # T：跨域迁移可行性（尺度/环境/成本/成熟度）
+  actionability: 0.0           # A：能否转化为论断/案例/数字
+  quality_score: 0.0           # 六子项加权 final_score
+  relevance_score: 0.0         # = relevance（核心论断主依据须 ≥0.70）
+  confidence: "{observed | inferred | speculated}"   # 对接 three-tier-confidence
+
+injection_use: "{它会如何影响本书的哪个论断/章节——具体到论点}"
+limitations:
+  - "{适用边界 1：什么场景下不成立}"
+  - "{适用边界 2：证据强度/样本/迁移条件的限制}"
+---
+
+# {资料标题}
+
+## 关键发现（用于本书论据）
+
+{2-5 句话陈述这条资料能支撑的具体论断，带数字。这是回填宪法时真正要用的内容。}
+
+## 证据细节
+
+{关键数据 / 实验设计 / 案例事实 / 标准条文。引用原文关键句。}
+
+## 与第一性原理的关系
+
+- 对应原理：{primary_principle}
+- 它把这个原理讲到第几层（D0表面/D1功能/D2学科/D3定律/D4极限）：{D?}
+- 现有书通常停在哪一层：{D?}（若已知）
+
+## 迁移/外推检验（仅 cross-domain / speculated 时填）
+
+- 尺度检验：{源场景的尺度是否可迁到本书场景}
+- 环境检验：{前提条件是否一致}
+- 成本检验：{迁移成本是否可接受}
+- 成熟度检验：{源方法是否已成熟}
+- 综合 confidence：{observed | inferred | speculated}
+
+## 冲突标注（如有）
+
+- 与 {ki-xxx} 的冲突：{描述}
+- conflict_status：{none | partially_conflicting | conflicting}

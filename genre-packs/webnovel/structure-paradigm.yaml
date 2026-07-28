@@ -1,0 +1,42 @@
+genre: webnovel
+core_engine: 追读力经济学 + 卷划分爽点节拍
+
+# 网文结构范式——区别于 fiction-general 的五阶段弧线。
+# fiction-general: 五阶段弧线（hook/development/complication/deepening/payoff），面向单本出版书。
+# webnovel: 卷划分 + 爽点节拍 + 连载连贯，面向百万字连载，以追读力为核心。
+
+chapter_stages:
+- golden_three: 前 3 章，留存生死线，钩子密度加倍（golden_three_multiplier 2.0）
+- hook_development: 章末钩子驱动章节发展
+- escalation: 主角升级 / 布局 / 扩张
+- coolpoint_payoff: 爽点兑现（每 2-3 章至少 1 个）
+- volume_climax: 卷末大爽点 / 大反转 / 跨卷钩子
+
+volume_structure:
+  # 网文独有的卷级结构——百万字长篇必备，init 阶段就要规划全书卷划分。
+  required_fields:
+  - volume_summary        # 卷摘要
+  - core_conflict         # 本卷核心冲突
+  - mid_reversal          # 中段反转（必填，确无则写"无（理由：...）"）
+  - crisis_chain          # 危机链（至少 3 次递增）
+  - volume_climax         # 卷末高潮（大爽点/大反转）
+  - cross_volume_hook     # 跨卷钩子（必须落到本卷最后一章章末未闭合问题）
+  - strand_plan           # 本卷 Quest/Fire/Constellation 分布
+  - foreshadowing_plan    # 本卷伏笔埋设与回收规划
+  - milestone_payoffs     # 本卷爽点里程碑（2-3 个量级递增的爽点）
+
+tracks:
+- reader_promise
+- memory_updates
+- quality_gates
+
+chapter_requirements:
+- purpose          # 本章目的
+- hook             # 章末钩子（必填，critical）
+- beats            # 场景节拍
+- coolpoint        # 本章爽点（类型/量级；连续 3 章不得全空）
+- micro_payoff     # 本章微兑现（至少 1 个）
+- strand           # 本章所属 strand（quest/fire/constellation）
+- foreshadowing    # 本章埋设/回收的伏笔
+- dependencies     # 上承下接（章首接续锚点 + 章末钩子承接下章）
+- exit_gate        # 章末检查（钩子是否成立 + 微兑现是否达标）

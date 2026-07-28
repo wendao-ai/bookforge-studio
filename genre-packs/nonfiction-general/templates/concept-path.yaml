@@ -1,0 +1,8 @@
+genre: nonfiction-general
+template: concept-path.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

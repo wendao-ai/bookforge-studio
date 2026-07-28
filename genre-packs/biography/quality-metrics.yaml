@@ -1,0 +1,21 @@
+genre: biography
+# 传记质量度量（1-5 分）
+metrics:
+  - id: factual_accuracy
+    dimension: 事实准确性
+    check: 每个关键事实有 source_note + confidence；fact-narrative-map 无遗漏
+  - id: narrative_arc
+    dimension: 叙事弧光
+    check: 人生弧光八要素齐全；转折落在 turning 阶段；代价真实
+  - id: source_traceability
+    dimension: 来源可追溯
+    check: subject-archive 每条有 url_or_citation/publication_date/confidence
+  - id: subject_ethics
+    dimension: 传主伦理
+    check: 授权状态明确；敏感事件/隐私边界经人审；在世人物法律风险已评估
+  - id: life_stage_weighting
+    dimension: 人生阶段权重
+    check: turning 阶段权重最高；word_budget 体现权重；童年晚年不喧宾夺主
+  - id: source_conflict_preserved
+    dimension: 多源矛盾保留
+    check: source-conflict-log 无抹平；resolution 非 silently-adopted

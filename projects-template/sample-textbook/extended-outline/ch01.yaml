@@ -1,0 +1,15 @@
+chapter_id: ch01
+title: "Opening Chapter"
+purpose: "Convert the selected outline into an executable chapter plan."
+inputs:
+  - "constitution/brief.yaml"
+  - "outline/outline.yaml"
+outputs:
+  - "drafts/chapters/ch01/v0_skeleton.md"
+reader_effect: "Curiosity and trust"
+dependencies: []
+genre_memory_updates: []
+quality_gates:
+  - "No critical genre consistency issues."
+  - "Reader promise is clear."
+status: draft

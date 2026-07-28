@@ -1,0 +1,8 @@
+genre: nonfiction-general
+template: argument-chain.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

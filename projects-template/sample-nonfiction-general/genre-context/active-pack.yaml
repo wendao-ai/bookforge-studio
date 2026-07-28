@@ -1,0 +1,10 @@
+primary_genre: nonfiction-general
+sub_genre: null
+secondary_genre: null
+confidence: observed
+loaded_at: YYYY-MM-DDTHH:MM:SSZ
+pack_path: genre-packs/nonfiction-general/
+collaboration_mode: thesis-review
+human_confirmed: true
+notes:
+- Replace this file after /detect-genre and author confirmation.

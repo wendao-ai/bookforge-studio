@@ -1,0 +1,26 @@
+rules:
+  historiography_inconsistency:
+    level: critical
+    description: 论述必须符合已声明史观
+    check: 论述必须符合已声明史观
+    action: 阻断 + 回溯评估
+  timeline_contradiction:
+    level: critical
+    description: 时间线不得矛盾
+    check: 时间线不得矛盾
+    action: 阻断 + 回溯评估
+  source_credibility_missing:
+    level: high
+    description: 史料必须标注可信度
+    check: 史料必须标注可信度
+    action: 标记待复核
+  citation_format:
+    level: medium
+    description: 引证格式必须统一
+    check: 引证格式必须统一
+    action: 警告
+  fact_interpretation_blur:
+    level: high
+    description: 事实与解释必须区分
+    check: 事实与解释必须区分
+    action: 标记待复核

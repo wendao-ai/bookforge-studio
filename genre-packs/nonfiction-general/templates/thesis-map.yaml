@@ -1,0 +1,8 @@
+genre: nonfiction-general
+template: thesis-map.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

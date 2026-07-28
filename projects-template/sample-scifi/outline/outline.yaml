@@ -1,0 +1,17 @@
+selected_outline: null
+genre: scifi
+candidates: []
+chapters:
+  - id: ch01
+    title: "Opening Chapter"
+    purpose: "Introduce the reader promise."
+    reader_effect: "Curiosity"
+    dependencies: []
+    promises:
+      - p001
+risks:
+  - "Replace template chapter with approved outline."
+approval:
+  status: pending
+  approved_by: null
+  approved_at: null

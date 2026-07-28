@@ -1,0 +1,52 @@
+# Genre Pack 注册表
+# 新增类型只需在此注册 + 创建对应目录
+
+packs:
+  scifi:
+    name: "科幻小说"
+    family: fiction
+    maturity: stable
+    path: "genre-packs/scifi/"
+    core_engine: "世界设定圣经 + 科学一致性引擎"
+
+  textbook:
+    name: "教材"
+    family: nonfiction
+    maturity: stable
+    path: "genre-packs/textbook/"
+    core_engine: "知识点 DAG + 强人审"
+
+  romance:
+    name: "言情小说"
+    family: fiction
+    maturity: stable
+    path: "genre-packs/romance/"
+    core_engine: "情感节拍器 + 关系状态机"
+
+  history:
+    name: "历史书籍"
+    family: nonfiction
+    maturity: stable
+    path: "genre-packs/history/"
+    core_engine: "史料库 + 史观一致性 + 时间线"
+
+  fiction-general:
+    name: "通用虚构"
+    family: fiction
+    maturity: stable
+    path: "genre-packs/fiction-general/"
+    core_engine: "通用故事弧线 + 人物弧光"
+
+  nonfiction-general:
+    name: "通用非虚构"
+    family: nonfiction
+    maturity: stable
+    path: "genre-packs/nonfiction-general/"
+    core_engine: "多种子范式（论证/应用/问题/科学）"
+
+  biography:
+    name: "人物传记/回忆录"
+    family: nonfiction
+    maturity: stable
+    path: "genre-packs/biography/"
+    core_engine: "人物本质溯源 + 事实核查 + 叙事弧光"

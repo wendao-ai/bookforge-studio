@@ -1,0 +1,40 @@
+genre: biography
+# 传记方法目录。跨 genre 共享能力 + 传记专属增量。
+shared_methods:
+- name: 人物本质溯源
+  skill: /trace-character-foundation
+  asset: capability-library/cross-genre/001-character-foundation-tracing.md
+  biography_adjustment: 溯源基于真实资料，标 confidence；speculated 不进核心论点
+- name: 人物弧光八要素
+  skill: /design-character-arc
+  asset: capability-library/cross-genre/001-character-arc-eight-elements.md
+  biography_adjustment: 弧光受事实约束，不改真实人物不可变区特质
+- name: 角色命名六维
+  skill: /name-character
+  asset: capability-library/cross-genre/001-character-naming-six-dimensions.md
+  biography_adjustment: 真实人名不改名，退化为记录+解释烙印
+- name: 剧情引擎库
+  skill: /select-plot-engines
+  asset: capability-library/cross-genre/001-plot-engine-library.md
+  biography_adjustment: 引擎用于组织真实事件，不改事实
+- name: 反 AI 腔门
+  skill: /gate-anti-ai-prose
+  asset: capability-library/cross-genre/001-anti-ai-prose-gate.md
+  biography_adjustment: 适用
+- name: 修订进化循环
+  skill: /revise-by-failure-mode
+  asset: capability-library/cross-genre/001-revision-evolution-loop.md
+  biography_adjustment: 适用
+biography_specific_methods:
+- name: 事实-叙事分离
+  skill: /separate-fact-narrative
+  use_when: 为每段正文建 fact-narrative-map，守 critical 护栏
+  risk: 未挂 fact_basis 的叙事阻断 V3；factual 软隔离不自动改正文
+- name: 人生阶段-叙事权重映射
+  skill: /design-life-arc（含 structure-paradigm 映射）
+  use_when: 按童年/成长/成就/转折/晚年分配叙事权重，转折最高
+  risk: 权重须在 word_budget 体现；不平均分配
+- name: 传记一致性检查
+  skill: /check-biography-consistency
+  use_when: 守 5 条 consistency-rules，critical 阻断
+  risk: critical 违规不得静默放行

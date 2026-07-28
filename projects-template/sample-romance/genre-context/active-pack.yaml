@@ -1,0 +1,10 @@
+primary_genre: romance
+sub_genre: null
+secondary_genre: null
+confidence: observed
+loaded_at: YYYY-MM-DDTHH:MM:SSZ
+pack_path: genre-packs/romance/
+collaboration_mode: author-decides-emotional-contract
+human_confirmed: true
+notes:
+- Replace this file after /detect-genre and author confirmation.

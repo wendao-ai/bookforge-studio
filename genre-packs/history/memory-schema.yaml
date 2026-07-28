@@ -1,0 +1,16 @@
+genre: history
+memory_extensions:
+  source-archive:
+    purpose: 历史书籍 memory for source-archive
+    required: true
+  timeline:
+    purpose: 历史书籍 memory for timeline
+    required: true
+  historiography-statement:
+    purpose: 历史书籍 memory for historiography-statement
+    required: true
+  citation-map:
+    purpose: 历史书籍 memory for citation-map
+    required: true
+write_policy: Only active project agents may write genre memory after loading the
+  pack.

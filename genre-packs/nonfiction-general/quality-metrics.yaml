@@ -1,0 +1,22 @@
+genre: nonfiction-general
+metrics:
+  thesis_clarity:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate thesis_clarity for 通用非虚构.
+  argument_rigor:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate argument_rigor for 通用非虚构.
+  evidence_alignment:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate evidence_alignment for 通用非虚构.
+  concept_order:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate concept_order for 通用非虚构.
+  reader_value:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate reader_value for 通用非虚构.

@@ -1,0 +1,19 @@
+genre: scifi
+memory_extensions:
+  world-bible:
+    purpose: 科幻小说 memory for world-bible
+    required: true
+  tech-tree:
+    purpose: 科幻小说 memory for tech-tree
+    required: true
+  timeline:
+    purpose: 科幻小说 memory for timeline
+    required: true
+  faction-map:
+    purpose: 科幻小说 memory for faction-map
+    required: true
+  revelation-curve:
+    purpose: 科幻小说 memory for revelation-curve
+    required: true
+write_policy: Only active project agents may write genre memory after loading the
+  pack.

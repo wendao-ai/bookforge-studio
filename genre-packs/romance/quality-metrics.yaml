@@ -1,0 +1,75 @@
+genre: romance
+
+# 言情小说质量度量。
+# - 前 5 项是言情特化的基础维度。
+# - reading_power 族做言情调参：抬高 Fire（关系线）占比，钩子偏情绪/选择，
+#   微兑现偏关系/情绪/认可。
+
+metrics:
+  # ---------- 言情基础维度 ----------
+  emotional_logic:
+    scale: 1-5
+    pass_threshold: 4
+    description: 情感变化是否有因果；心动/冲突/和解是否有铺垫与动机。
+  chemistry:
+    scale: 1-5
+    pass_threshold: 4
+    description: CP 化学反应的真实度与张力。
+  tension_curve:
+    scale: 1-5
+    pass_threshold: 4
+    description: 感情张力的起落曲线是否合理，不过早塌陷也不过度劝退。
+  trope_satisfaction:
+    scale: 1-5
+    pass_threshold: 4
+    description: 题材套路（破镜重圆/先婚后爱/替身等）的兑现质量与变形。
+  hea_payoff:
+    scale: 1-5
+    pass_threshold: 4
+    description: HEA/HFN 结局承诺的兑现度。
+
+  # ---------- 追读力族（romance 调参）----------
+  hook_quality:
+    scale: 1-5
+    pass_threshold: 3
+    description: 章末/章内钩子——言情偏情绪与选择牵引。
+    hook_types: [crisis, mystery, desire, emotion, choice]
+    preferred: [emotion, choice, desire]
+    strength_levels: { strong: "卷末/关系转折", medium: "普通剧情章", weak: "过渡/铺垫章" }
+    placement: { in_chapter: [mystery, emotion], chapter_end: [crisis, choice, desire] }
+    guidance: 言情优先用情绪钩（心疼/心动/羞耻）与选择钩（感情vs现实）；章末强度不足属 soft。
+
+  payoff_pattern:
+    scale: 1-5
+    pass_threshold: 3
+    description: 兑现结构——言情关注关系推进的节奏感。
+    guidance: 软比例参考；关系兑现前要有足够铺垫，兑现后要有情感余味。
+
+  micro_payoff_density:
+    scale: 1-5
+    pass_threshold: 3
+    description: 每章给读者的"小收获"——言情偏关系/情绪/认可。
+    payoff_types: [information, relationship, ability, recognition, emotion, clue]
+    preferred: [relationship, emotion, recognition]
+    per_chapter_min: 1
+    transition_chapter_min: 1
+    guidance: 过渡章至少 1 个关系/情绪微兑现（小互动/轻情绪）。
+
+  strand_balance:
+    scale: 1-5
+    pass_threshold: 3
+    description: 三线节奏——romance 抬高 Fire（关系线）占比。
+    target_ratios: { quest: "40-50%", fire: "35-45%", constellation: "10-15%" }
+    red_lines:
+      quest_consecutive_max: 5
+      fire_gap_max: 5
+      constellation_gap_max: 15
+    guidance: 关系线断档超 5 章记 medium（strand_fire_gap）。
+
+  foreshadowing_urgency:
+    scale: 1-5
+    pass_threshold: 3
+    description: 伏笔/感情债管理——是否按紧急度推进与回收。
+    tier_weights: { core: 3.0, subplot: 2.0, decoration: 1.0 }
+    urgency_formula: "(已过章数 / (目标回收章 - 埋设章)) × tier_weight"
+    guidance: core 感情债（如核心 CP 障碍）逾期应优先处理。

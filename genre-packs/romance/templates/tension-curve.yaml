@@ -1,0 +1,8 @@
+genre: romance
+template: tension-curve.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

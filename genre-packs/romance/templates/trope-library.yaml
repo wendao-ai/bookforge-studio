@@ -1,0 +1,8 @@
+genre: romance
+template: trope-library.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

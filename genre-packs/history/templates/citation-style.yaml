@@ -1,0 +1,8 @@
+genre: history
+template: citation-style.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

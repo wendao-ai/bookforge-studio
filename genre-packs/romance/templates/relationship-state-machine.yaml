@@ -1,0 +1,8 @@
+genre: romance
+template: relationship-state-machine.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

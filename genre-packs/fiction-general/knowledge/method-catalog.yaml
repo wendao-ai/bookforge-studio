@@ -1,0 +1,33 @@
+genre: fiction-general
+# 方法目录。本 Pack 的方法由跨 genre 共享能力层承载，此处为索引 + fiction-general 语境的使用指引。
+methods:
+- name: 人物本质溯源
+  asset: capability-library/cross-genre/001-character-foundation-tracing.md
+  skill: /trace-character-foundation
+  use_when: 宪法/扩展大纲阶段，为主要人物与群体建立存在根基→历史→衍生溯源，作为弧光地基
+  risk: 短篇可只做模块B最小集；禁止把溯源当设定说明书塞进正文
+- name: 人物弧光八要素
+  asset: capability-library/cross-genre/001-character-arc-eight-elements.md
+  skill: /design-character-arc
+  use_when: 设计主要人物弧光，确保转变落在溯源的可变区
+  risk: 弧光改变不可变区 = 人物失真；转折须 ≥2 处铺垫
+- name: 角色命名六维
+  asset: capability-library/cross-genre/001-character-naming-six-dimensions.md
+  skill: /name-character
+  use_when: 人物溯源后、弧光设计前，跨作品去重
+  risk: 非中文语境需另建维度；传记真名不改名
+- name: 剧情引擎库
+  asset: capability-library/cross-genre/001-plot-engine-library.md
+  skill: /select-plot-engines
+  use_when: 大纲阶段选 2-3 引擎组合，承载弧光转折与代价
+  risk: 单引擎单薄、3+ 引擎混乱；主引擎须与读者承诺一致
+- name: 反 AI 腔硬门
+  asset: capability-library/cross-genre/001-anti-ai-prose-gate.md
+  skill: /gate-anti-ai-prose
+  use_when: draft-v3 后、typeset 前的硬质量门
+  risk: 诗歌/学术论述类须按文体调整阈值
+- name: 修订进化循环
+  asset: capability-library/cross-genre/001-revision-evolution-loop.md
+  skill: /revise-by-failure-mode
+  use_when: 收到批评后分类失败模式、针对性重写、防过拟合沉淀
+  risk: 不打补丁、不把单次反馈提升为全局规则；与 /fix-cascade 互补不替代

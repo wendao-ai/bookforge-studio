@@ -1,0 +1,8 @@
+genre: fiction-general
+template: promise-ledger.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

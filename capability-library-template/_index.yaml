@@ -1,0 +1,13 @@
+# 能力库索引模板 —— 复制到你工作区的 capability-library/_index.yaml 后开始累积
+# 每条资产需在 rules/capability-asset.md 定义的字段基础上，记录来源项目、类型、问题、模式、证据与局限
+by_genre:
+  biography: []
+  fiction-general: []
+  history: []
+  nonfiction-general: []
+  romance: []
+  scifi: []
+  textbook: []
+  webnovel: []
+cross_genre: []
+author_preferences: []

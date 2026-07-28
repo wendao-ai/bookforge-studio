@@ -1,0 +1,18 @@
+genre: textbook
+core_engine: 知识点 DAG + 强人审
+stages:
+- hook
+- development
+- complication
+- deepening
+- payoff
+tracks:
+- reader_promise
+- memory_updates
+- quality_gates
+chapter_requirements:
+- purpose
+- inputs
+- reader_effect
+- dependencies
+- exit_gate

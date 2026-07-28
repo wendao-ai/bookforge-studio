@@ -1,0 +1,87 @@
+genre: webnovel
+
+# 网文 memory 扩展——追踪追读力相关的长期状态。
+# 写入活动项目的 genre-context/genre-memory/，按章更新。
+# 这些扩展是网文长篇不烂尾的根基（百万字连载靠 memory 而非记忆）。
+
+extensions:
+
+  golden-finger:
+    description: 金手指设定与状态（网文的魂）
+    fields:
+    - type            # 类型（重生/系统/异能/传承/血脉...）
+    - capability      # 能力
+    - cost            # 代价（必填——网文金手指必须有代价）
+    - boundary        # 边界（失效条件：蝴蝶效应/能量耗尽/冷却/反噬）
+    - evolution       # 演化（是否会升级/变化）
+    rules:
+    - 代价必须兑现，不得只设不付（A/B 实测：webnovel ch9 兑现情感隔离代价，Bookie F4 只埋未付 = 短板）
+    - 边界必须明确，不得无限开挂（机械降神 = critical 违规）
+
+  escalation-track:
+    description: 升级线——主角实力/资源/地位的跃迁记录
+    fields:
+    - level           # 当前等级（金融 L1-L5 / 修为境界 / 异能等阶）
+    - resources       # 资源（资金 / 人脉 / 把柄 / 装备）
+    - milestones      # 跃迁节点（触发章 + 触发事件 + 代价）
+    rules:
+    - 升级必须有因果，不得跳级（除非有剧情解释）
+    - 每次跃迁记录触发与代价，可审计
+
+  face-slap-ledger:
+    description: 打脸记录——谁轻视/压制过主角，主角如何打脸回去
+    fields:
+    - offender        # 冒犯者
+    - offense         # 冒犯事件 + 章
+    - face_slap_chapter   # 打脸章
+    - face_slap_type  # 打脸类型（装逼打脸/越级反杀/扮猪吃虎/反派翻车...）
+    rules:
+    - 冒犯必须有打脸兑现，不得只埋不爽（追读力红线）
+    - 打脸不得违背主角灰度底线
+
+  coolpoint-ledger:
+    description: 爽点台账——每章爽点记录，用于峰谷节奏审计
+    fields:
+    - chapter
+    - coolpoint_type  # 类型（9 类）
+    - magnitude       # 量级（strong/medium/weak）
+    rules:
+    - 连续 3 章无记录 = 追读力红线（no_coolpoint_streak）
+    - 峰谷交替，不得双高断层
+
+  foreshadowing-urgency:
+    description: 伏笔紧急度——按 urgency 公式追踪回收
+    fields:
+    - id
+    - content
+    - buried_chapter
+    - target_payoff_chapter
+    - tier            # core/subplot/decoration
+    - urgency         # 计算值：(已过章数/(目标回收章-埋设章)) × tier_weight
+    - status          # open/closed
+    rules:
+    - core 伏笔 urgency > 1.0 必须安排回收
+    - 回收后标记 closed，append-friendly
+
+  reader-promise:
+    description: 读者承诺——网文与读者的追读契约
+    fields:
+    - id
+    - promise         # 承诺内容（主角会变强/反派会翻车/CP 会在一起/金手指会揭秘...）
+    - origin_chapter
+    - payoff_plan
+    - fulfillment_status  # ongoing/fulfilled/broken
+    rules:
+    - 承诺必须兑现，违背 = 读者信任崩塌
+    - broken 状态需人审决策（不得擅自违背承诺）
+
+  character-arc:
+    description: 角色弧——网文主角可相对扁平，但必须有弧光节点
+    fields:
+    - character_id
+    - memory_tag      # 记忆点（金手指/性格标签/口头禅/反差）
+    - wound           # 伤口（驱动行为）
+    - arc_nodes       # 弧光节点（转折章 + 变化）
+    rules:
+    - 主角必须有强记忆点（网文人设核心）
+    - 行为变化必须有 wound/欲望驱动，不得突变

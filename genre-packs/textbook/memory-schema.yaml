@@ -1,0 +1,16 @@
+genre: textbook
+memory_extensions:
+  knowledge-dag:
+    purpose: 教材 memory for knowledge-dag
+    required: true
+  learning-objectives:
+    purpose: 教材 memory for learning-objectives
+    required: true
+  exercise-bank:
+    purpose: 教材 memory for exercise-bank
+    required: true
+  assessment-map:
+    purpose: 教材 memory for assessment-map
+    required: true
+write_policy: Only active project agents may write genre memory after loading the
+  pack.

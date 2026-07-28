@@ -1,0 +1,33 @@
+{
+  "name": "bookforge-studio",
+  "owner": {
+    "name": "wendao-ai",
+    "url": "https://github.com/wendao-ai"
+  },
+  "metadata": {
+    "description": "面向 AI 原生图书生产的出版工作室：共享 agents/skills/hooks + 8 个类型专属 Genre Pack，覆盖从构思到排版导出的全流程。",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "bookforge-studio",
+      "source": "./",
+      "description": "面向 AI 原生图书生产的 Claude Code 插件：共享 agents/skills/hooks + 8 个类型专属 Genre Pack（科幻/教材/言情/历史/通用小说/通用非虚构/传记/网络小说），覆盖构思、大纲、草稿 V0-V3、读者模拟审校到排版导出的完整六阶段流水线。",
+      "version": "0.1.0",
+      "author": {
+        "name": "wuzhiguo",
+        "email": "jiawei243@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": [
+        "writing",
+        "publishing",
+        "book-production",
+        "genre-pack",
+        "editorial",
+        "fiction",
+        "nonfiction"
+      ]
+    }
+  ]
+}

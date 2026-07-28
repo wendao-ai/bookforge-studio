@@ -1,0 +1,8 @@
+genre: scifi
+template: revelation-curve.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

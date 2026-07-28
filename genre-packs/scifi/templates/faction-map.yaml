@@ -1,0 +1,8 @@
+genre: scifi
+template: faction-map.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

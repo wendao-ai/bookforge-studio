@@ -1,0 +1,7 @@
+controversies:
+  - id: r001
+    topic: "Template review disagreement."
+    profiles: []
+    positions: []
+    severity: low
+    decision: pending

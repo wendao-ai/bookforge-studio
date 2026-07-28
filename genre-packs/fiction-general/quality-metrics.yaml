@@ -1,0 +1,74 @@
+genre: fiction-general
+
+# 通用虚构的质量度量。
+# - 前 5 项是基础维度（任何虚构都适用）。
+# - reading_power 族借鉴连载创作的"读者黏性"机制，做出版级通用化：
+#   任何虚构都需要钩子、兑现、节奏平衡与伏笔管理；此处不引入纯网文套路
+#   （如装逼打脸/迪化误解），强套路留给未来网文特化 pack。
+
+metrics:
+  # ---------- 基础维度 ----------
+  plot_causality:
+    scale: 1-5
+    pass_threshold: 4
+    description: 关键转折是否有充分因果支撑；无巧合救场、无未铺垫的突变。
+  character_depth:
+    scale: 1-5
+    pass_threshold: 4
+    description: 人物动机、弧光与复杂度；行为是否有内在依据。
+  theme_consistency:
+    scale: 1-5
+    pass_threshold: 4
+    description: 主题表达前后一致，无漂移或自相矛盾。
+  pacing:
+    scale: 1-5
+    pass_threshold: 4
+    description: 推进力是否持续、中段是否失去张力；与 strand_balance / micro_payoff_density 配合判断。
+  voice:
+    scale: 1-5
+    pass_threshold: 4
+    description: 叙事语气是否稳定且贴合风格锚点（style-anchor）。
+
+  # ---------- 追读力族（reading power，出版级通用化）----------
+  hook_quality:
+    scale: 1-5
+    pass_threshold: 3
+    description: 章末/章内钩子的质量——是否给读者"想知道接下来"的牵引力。
+    hook_types: [crisis, mystery, desire, emotion, choice]
+    strength_levels: { strong: "卷末/关键转折", medium: "普通剧情章", weak: "过渡/铺垫章" }
+    placement: { in_chapter: [mystery, emotion], chapter_end: [crisis, choice, desire] }
+    guidance: 章末钩子强度不足属 soft（见 consistency-rules 的 medium 规则）；上章钩子完全不兑现属 hard（promise_broken）。
+
+  payoff_pattern:
+    scale: 1-5
+    pass_threshold: 3
+    description: 兑现结构是否完整——铺垫(setup ~30%)/兑现(delivery ~40%)/余波(aftermath ~30%)。
+    guidance: 软比例参考，非硬性要求；关注兑现前是否有足够铺垫、兑现后是否有反应与余味。
+
+  micro_payoff_density:
+    scale: 1-5
+    pass_threshold: 3
+    description: 每章给读者的"小收获"密度——让读者觉得"这章没白看"。
+    payoff_types: [information, relationship, ability, recognition, emotion, clue]
+    per_chapter_min: 1
+    transition_chapter_min: 1
+    guidance: 过渡章允许无大兑现，但至少 1 个微兑现（信息/关系/线索等小收获）。
+
+  strand_balance:
+    scale: 1-5
+    pass_threshold: 3
+    description: 三线节奏平衡——Quest(主线剧情)/Fire(关系线)/Constellation(世界观扩展)。
+    target_ratios: { quest: "55-65%", fire: "20-30%", constellation: "10-20%" }
+    red_lines:
+      quest_consecutive_max: 5
+      fire_gap_max: 10
+      constellation_gap_max: 15
+    guidance: 超红线记入 consistency-rules 的 medium 断档规则（strand_*_gap）。
+
+  foreshadowing_urgency:
+    scale: 1-5
+    pass_threshold: 3
+    description: 伏笔管理——是否按紧急度推进与回收，无长期挂账。
+    tier_weights: { core: 3.0, subplot: 2.0, decoration: 1.0 }
+    urgency_formula: "(已过章数 / (目标回收章 - 埋设章)) × tier_weight"
+    guidance: core 伏笔逾期应优先处理；长期不回收的伏笔构成"读者注意力坏账"。

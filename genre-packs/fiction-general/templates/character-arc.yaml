@@ -1,0 +1,36 @@
+genre: fiction-general
+template: character-arc.yaml
+# 人物弧光档案字段。由 /develop-character-arc 编排 /trace-character-foundation + /name-character + /design-character-arc 产出。
+fields:
+  # 基础
+  - id
+  - name                    # 角色名（经 /name-character 六维命名）
+  - role                    # 主角/配角/关联角色
+  - purpose                 # 该人物在故事中的作用
+  # 溯源（/trace-character-foundation）
+  - growth_environment      # 成长环境：时代/地域/阶层/家庭/教育
+  - key_experiences         # 关键经历 3-5 个，每个追溯一个信念/恐惧/习惯
+  - group_position          # 群体位置：典型代表/异类/边缘人
+  - strength                # 核心优点
+  - weakness                # 核心缺陷
+  - strength_weakness_root  # 优缺点共同根源（同源）
+  - mutable_zone            # 可变区：认知信念/行为模式/对他人的态度
+  - immutable_core          # 不可变区：深层恐惧根源/核心欲望/本能/核心人格
+  - social_stance           # 实际社会立场及原因
+  # 命名（/name-character）
+  - naming_rationale        # 命名理由：时代/阶层/父母逻辑/暗示
+  # 弧光（/design-character-arc）
+  - arc_type                # 正向/负向/平坦
+  - initial_state           # 初始状态
+  - external_goal           # 外部目标
+  - internal_gap            # 内部缺口
+  - false_belief            # 错误信念
+  - key_conflict            # 关键冲突
+  - turning_choice          # 转折选择
+  - cost                    # 代价（真实不可逆）
+  - ending_state            # 结尾状态
+  - turning_setup           # 转折铺垫清单（≥2 处）
+  # 元数据
+  - source                  # 来源章节/计划
+  - status                  # draft/approved
+  - notes

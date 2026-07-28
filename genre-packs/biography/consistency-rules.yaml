@@ -1,0 +1,26 @@
+rules:
+  - id: fact-narrative-separation
+    level: critical
+    description: 每段叙事必须可追溯到 subject-archive 的 fact_basis；叙事重构必须显式标 narrative_reconstruction 并说明依据
+    check: fact-narrative-map 覆盖所有正文段落；narrative_type 字段非空
+    action: 阻断——未标 fact_basis 的叙事不得进入 V3；阻断进度直到补全
+  - id: subject-ethics-boundary
+    level: critical
+    description: 传主授权状态、敏感事件、在世人物法律风险须经人审
+    check: collaboration-mode 的 requires_approval 项均有 decision event
+    action: 阻断——缺失人审记录不得进入 typeset
+  - id: immutable-trait-fidelity
+    level: high
+    description: 弧光不得改变真实人物的不可变区特质；改了须标 narrative_reconstruction
+    check: design-life-arc 的转变落点 vs 溯源不可变区；越界项有标注
+    action: 出具书面修复计划，越界叙事重构须人审确认
+  - id: source-conflict-preservation
+    level: high
+    description: 多源矛盾必须保留，不得选择性引用或抹平
+    check: source-conflict-log 的 resolution 非 silently-adopted；conflicting 项有保留
+    action: 出具书面修复计划，抹平的争议须恢复
+  - id: life-stage-weighting
+    level: medium
+    description: 转折期叙事权重最高，word_budget 体现
+    check: outline word_budget 中 turning 阶段章节字数 > 童年晚年
+    action: 记录在案，可继续推进但须调整

@@ -1,0 +1,14 @@
+genre: scifi
+methods:
+- name: 世界观自洽
+  use_when: When handling 世界观自洽
+  risk: Do not apply mechanically.
+- name: 科学推演与叙事节奏平衡
+  use_when: When handling 科学推演与叙事节奏平衡
+  risk: Do not apply mechanically.
+- name: 惊奇感营造
+  use_when: When handling 惊奇感营造
+  risk: Do not apply mechanically.
+- name: 设定释放控制
+  use_when: When handling 设定释放控制
+  risk: Do not apply mechanically.

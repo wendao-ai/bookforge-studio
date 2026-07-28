@@ -1,0 +1,44 @@
+{
+  "name": "bookforge-studio",
+  "version": "0.1.0",
+  "description": "面向 AI 原生图书生产的出版工作室模板：共享 agents/skills/hooks + 8 个类型专属 Genre Pack，覆盖构思、大纲、草稿、读者模拟审校到排版导出的全流程。",
+  "author": {
+    "name": "wuzhiguo",
+    "email": "jiawei243@gmail.com"
+  },
+  "homepage": "https://github.com/wendao-ai/bookforge-studio#readme",
+  "repository": "https://github.com/wendao-ai/bookforge-studio",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "publishing",
+    "book-production",
+    "genre-pack",
+    "editorial",
+    "fiction",
+    "nonfiction"
+  ],
+  "agents": [
+    "./agents",
+    "./genre-packs/biography/agents",
+    "./genre-packs/fiction-general/agents",
+    "./genre-packs/history/agents",
+    "./genre-packs/nonfiction-general/agents",
+    "./genre-packs/romance/agents",
+    "./genre-packs/scifi/agents",
+    "./genre-packs/textbook/agents",
+    "./genre-packs/webnovel/agents"
+  ],
+  "skills": [
+    "./skills",
+    "./genre-packs/biography/skills",
+    "./genre-packs/fiction-general/skills",
+    "./genre-packs/history/skills",
+    "./genre-packs/nonfiction-general/skills",
+    "./genre-packs/romance/skills",
+    "./genre-packs/scifi/skills",
+    "./genre-packs/textbook/skills",
+    "./genre-packs/webnovel/skills"
+  ],
+  "hooks": "./hooks/hooks.json"
+}

@@ -1,0 +1,12 @@
+genre: history
+mode: author-decides-historiography
+human_review_required:
+- genre confirmation
+- constitution approval
+- critical memory changes
+- final delivery
+autonomous_allowed:
+- draft candidates
+- local polish
+- reader simulation
+- format reports

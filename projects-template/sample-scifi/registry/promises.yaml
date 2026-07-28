@@ -1,0 +1,6 @@
+promises:
+  - id: p001
+    promise: "Template reader promise."
+    origin: "constitution/brief.yaml"
+    payoff_plan: "Define during outline."
+    status: planned

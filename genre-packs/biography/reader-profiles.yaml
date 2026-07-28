@@ -1,0 +1,24 @@
+genre: biography
+# 传记读者画像（至少3类，含1类审视型）
+profiles:
+  - id: knowledge-seeker
+    name: 求知型读者
+    expectations: 想了解传主真实生平与时代背景
+    sensitivities: 厌恶虚构冒充事实、厌恶流水账履历
+    delight_triggers: 鲜为人知的真实细节、时代与个人的交织
+    rejection_triggers: 事实错误、无来源的断言
+    review_focus: factual_accuracy / source_traceability
+  - id: empathic-reader
+    name: 共情型读者
+    expectations: 想被传主的人生困境与选择打动
+    sensitivities: 厌恶干瘪生平罗列、厌恶说教
+    delight_triggers: 转折期的真实代价、人物内在挣扎
+    rejection_triggers: 人物扁平、弧光断裂、AI腔
+    review_focus: narrative_arc / character_depth
+  - id: expert-scrutinizer
+    name: 专业审视型读者（demanding/skeptical）
+    expectations: 严格核查事实准确性与来源可信度
+    sensitivities: 对未标注的重构、抹平的争议、伦理越界零容忍
+    delight_triggers: 多源矛盾如实保留、事实-叙事分离清晰、伦理边界严谨
+    rejection_triggers: 事实-叙事混淆、抹平史观争议、在世人物隐私越界
+    review_focus: factual_accuracy / subject_ethics / source_conflict_preserved

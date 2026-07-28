@@ -1,0 +1,8 @@
+genre: textbook
+template: assessment-map.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

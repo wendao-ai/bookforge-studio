@@ -1,0 +1,8 @@
+genre: textbook
+template: pedagogy-plan.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

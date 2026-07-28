@@ -1,0 +1,8 @@
+genre: nonfiction-general
+template: evidence-map.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

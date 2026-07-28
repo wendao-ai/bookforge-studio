@@ -1,0 +1,125 @@
+# 类型识别规则
+# genre-detector Agent 使用此文件匹配用户意图
+
+rules:
+  scifi:
+    explicit_keywords:
+      - "科幻"
+      - "sci-fi"
+      - "赛博朋克"
+      - "太空歌剧"
+      - "硬科幻"
+      - "反乌托邦"
+      - "外星"
+      - "太空"
+      - "AI"
+      - "时间旅行"
+    intent_patterns:
+      - "未来世界设定"
+      - "技术推演驱动情节"
+      - "外星/太空/AI/时间旅行主题"
+    sub_genres:
+      - hard-scifi
+      - space-opera
+      - cyberpunk
+      - dystopia
+      - time-travel
+      - first-contact
+
+  textbook:
+    explicit_keywords:
+      - "教材"
+      - "教科书"
+      - "教程"
+      - "教学"
+      - "课程"
+      - "讲义"
+      - "知识点"
+      - "习题"
+    intent_patterns:
+      - "教学/学习导向"
+      - "知识点系统讲解"
+      - "面向学生/自学者"
+    sub_genres:
+      - introductory
+      - advanced
+      - reference
+
+  romance:
+    explicit_keywords:
+      - "言情"
+      - "爱情"
+      - "恋爱"
+      - "甜文"
+      - "虐恋"
+      - "CP"
+      - "HEA"
+    intent_patterns:
+      - "爱情故事"
+      - "感情线/关系发展"
+      - "甜虐配比"
+    sub_genres:
+      - sweet
+      - angst
+      - slow-burn
+      - enemies-to-lovers
+
+  history:
+    explicit_keywords:
+      - "历史"
+      - "史料"
+      - "编年"
+      - "朝代"
+      - "传记"
+      - "年代"
+      - "考古"
+    intent_patterns:
+      - "历史事件/人物"
+      - "史学研究/考据"
+      - "历史叙事/论证"
+    sub_genres:
+      - narrative-history
+      - historiography
+      - biography
+      - military-history
+
+  fiction-general:
+    explicit_keywords:
+      - "小说"
+      - "故事"
+      - "虚构"
+      - "文学"
+    intent_patterns:
+      - "写一个故事/小说"
+      - "虚构叙事"
+      - "未明确归类的文学创作"
+    sub_genres:
+      - literary-fiction
+      - thriller
+      - mystery
+      - fantasy
+
+  nonfiction-general:
+    explicit_keywords:
+      - "非虚构"
+      - "论述"
+      - "分析"
+      - "理论"
+      - "哲学"
+      - "科普"
+      - "评论"
+    intent_patterns:
+      - "论述/分析某话题"
+      - "理论/框架构建"
+      - "问题分析与解决方案"
+    sub_genres:
+      - argument-driven
+      - applied-theory
+      - problem-solution
+      - scientific
+
+detection_defaults:
+  min_confidence: "inferred"
+  fuzzy_matching: true
+  multi_genre_threshold: 0.6
+  clarification_after_rounds: 5

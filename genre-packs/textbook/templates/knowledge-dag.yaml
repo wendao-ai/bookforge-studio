@@ -1,0 +1,8 @@
+genre: textbook
+template: knowledge-dag.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

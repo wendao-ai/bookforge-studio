@@ -1,0 +1,22 @@
+genre: history
+metrics:
+  source_reliability:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate source_reliability for 历史书籍.
+  historiography_consistency:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate historiography_consistency for 历史书籍.
+  narrative_readability:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate narrative_readability for 历史书籍.
+  argument_rigor:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate argument_rigor for 历史书籍.
+  timeline_accuracy:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate timeline_accuracy for 历史书籍.

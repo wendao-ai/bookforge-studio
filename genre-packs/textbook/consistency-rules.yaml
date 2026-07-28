@@ -1,0 +1,26 @@
+rules:
+  prerequisite_jump:
+    level: critical
+    description: 不得使用未引入的前置概念
+    check: 不得使用未引入的前置概念
+    action: 阻断 + 回溯评估
+  circular_dependency:
+    level: critical
+    description: 知识 DAG 不得存在环
+    check: 知识 DAG 不得存在环
+    action: 阻断 + 回溯评估
+  cognitive_overload:
+    level: high
+    description: 单节新概念数量必须可学习
+    check: 单节新概念数量必须可学习
+    action: 标记待复核
+  exercise_mismatch:
+    level: high
+    description: 习题必须对齐知识点和目标层级
+    check: 习题必须对齐知识点和目标层级
+    action: 标记待复核
+  term_drift:
+    level: medium
+    description: 术语必须稳定
+    check: 术语必须稳定
+    action: 警告

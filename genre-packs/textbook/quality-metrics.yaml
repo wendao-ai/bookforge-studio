@@ -1,0 +1,22 @@
+genre: textbook
+metrics:
+  prerequisite_integrity:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate prerequisite_integrity for 教材.
+  cognitive_load:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate cognitive_load for 教材.
+  exercise_alignment:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate exercise_alignment for 教材.
+  clarity:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate clarity for 教材.
+  expert_accuracy:
+    scale: 1-5
+    pass_threshold: 4
+    description: Evaluate expert_accuracy for 教材.

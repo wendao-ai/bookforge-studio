@@ -1,0 +1,30 @@
+{
+  "skill_name": "/synthesize-outline",
+  "evals": [
+    {
+      "id": 1,
+      "name": "structure_contract",
+      "prompt": "[通用结构契约] 验证 /synthesize-outline 的 SKILL.md 结构完整性。这是一个自动生成的最小 eval，用于回归检测结构退化。请补充领域特定的 eval 条目（见下方空占位）。",
+      "expected_output": "SKILL.md 含有效 frontmatter + 触发词 + Steps + Quality Gates 章节",
+      "files": [],
+      "assertions": [
+        {"name": "skill_md_exists", "type": "file_exists", "pattern": "SKILL.md"},
+        {"name": "has_frontmatter", "type": "file_contains", "pattern": "SKILL.md", "substring": "---"},
+        {"name": "has_name_field", "type": "file_contains", "pattern": "SKILL.md", "substring": "name:"},
+        {"name": "has_trigger_word", "type": "file_contains", "pattern": "SKILL.md", "substring": "/synthesize-outline"},
+        {"name": "has_steps_section", "type": "file_contains", "pattern": "SKILL.md", "substring": "## Steps"},
+        {"name": "has_quality_gates", "type": "file_contains", "pattern": "SKILL.md", "substring": "## Quality Gates"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "domain_specific_placeholder",
+      "prompt": "[待补充] 请在此添加 /synthesize-outline 的领域特定测试 prompt。描述一个典型使用场景，让 skill 执行后产出可断言的输出。",
+      "expected_output": "[待补充] 描述期望的输出结构或内容",
+      "files": [],
+      "assertions": [
+        {"name": "placeholder_1", "type": "file_exists", "pattern": "PLACEHOLDER_REPLACE_ME.md"}
+      ]
+    }
+  ]
+}

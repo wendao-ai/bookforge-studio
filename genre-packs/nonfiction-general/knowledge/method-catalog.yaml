@@ -1,0 +1,14 @@
+genre: nonfiction-general
+methods:
+- name: 论题清晰
+  use_when: When handling 论题清晰
+  risk: Do not apply mechanically.
+- name: 论证严密
+  use_when: When handling 论证严密
+  risk: Do not apply mechanically.
+- name: 证据对齐
+  use_when: When handling 证据对齐
+  risk: Do not apply mechanically.
+- name: 概念引入顺序
+  use_when: When handling 概念引入顺序
+  risk: Do not apply mechanically.

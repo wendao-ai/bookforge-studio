@@ -1,0 +1,70 @@
+rules:
+  # ============================================================
+  # 事实层（blockable，critical / high）—— 言情可客观验证的正确性缺陷
+  # ============================================================
+  hea_contract_break:
+    level: critical
+    description: 结局承诺（HEA/HFN）不得未经作者批准改变。
+    check: HEA/HFN 方向是否被擅自修改或破坏。
+    action: 阻断 + 回溯评估
+    impact: 违背言情核心读者契约，弃书与差评风险。
+    repair: 回溯恢复承诺方向，或走人审显式更改（记录进 dialogue_log）。
+
+  sudden_affection:
+    level: critical
+    description: 不得出现无状态过渡的突兀好感、背叛或原谅。
+    check: 关系状态变迁（attraction/trust/intimacy）是否有前置铺垫与动机。
+    action: 阻断 + 回溯补铺垫
+    impact: 关系不可信，读者出戏；违反关系状态机。
+    repair: 补过渡节拍或调整变迁幅度；/fix-cascade。
+
+  emotion_logic_break:
+    level: high
+    description: 人物情绪变化必须有动机支撑。
+    check: 情绪转折是否有可追溯的触发与铺垫。
+    action: 标记待复核 + 出具修复计划
+    impact: 情感不可信，化学反应失真。
+    repair: 补情绪触发或调整转折；/fix-cascade。
+
+  character_collapse:
+    level: high
+    description: 人物行为不得违背已建立的人设与未愈伤口（unresolved wounds）。
+    check: 关键行为是否符合已建立的人物逻辑与伤口设定。
+    action: 标记待复核 + 出具修复计划
+    impact: 人物崩塌（OOC），读者投入归零。
+    repair: 对齐人设或补动机；/fix-cascade。
+
+  # ============================================================
+  # 感性层（advisory，medium）—— 体验/节奏信号，不阻断
+  # ============================================================
+  tension_curve_anomaly:
+    level: medium
+    description: 张力曲线不得过早塌陷或过度劝退。
+    check: 感情张力的起落是否合理。
+    action: 警告并记录
+    impact: 张力失衡，追读力下降。
+    repair: 调整张力节奏；可在 override_rationale 下带理由继续。
+
+  beat_missing:
+    level: medium
+    description: 关键情感节拍（心动/冲突/和解等）不得缺失。
+    check: 本章应有的情感节拍是否覆盖。
+    action: 警告并记录
+    impact: 情感弧不完整，读者满足感下降。
+    repair: 补节拍或调整 beat sheet。
+
+  strand_fire_gap:
+    level: medium
+    description: 关系线（Fire）断档不得超过红线（romance 默认 5 章）。
+    check: 关系线最后一次推进距今章数是否超 strand_balance.red_lines.fire_gap_max。
+    action: 警告并记录
+    impact: CP 互动长期缺失，言情核心愉悦受损。
+    repair: 安排关系线推进节拍。
+
+  hook_strength_weak:
+    level: medium
+    description: 章末钩子强度应与章节类型匹配；言情优先情绪钩/选择钩。
+    check: 章末钩子类型与强度是否匹配章节定位。
+    action: 警告并记录
+    impact: 章末牵引力不足。
+    repair: 强化情绪/选择钩；可在 override_rationale 下带理由继续。

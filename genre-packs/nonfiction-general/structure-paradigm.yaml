@@ -1,0 +1,18 @@
+genre: nonfiction-general
+core_engine: 论证链 + 证据图 + 概念路径
+stages:
+- hook
+- development
+- complication
+- deepening
+- payoff
+tracks:
+- reader_promise
+- memory_updates
+- quality_gates
+chapter_requirements:
+- purpose
+- inputs
+- reader_effect
+- dependencies
+- exit_gate

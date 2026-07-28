@@ -1,0 +1,81 @@
+genre: romance
+
+# 言情四类目标读者画像，差异化。含一个 demanding（人设化学反应读者）。
+# review_focus 指向 quality-metrics.yaml 中的 metric 名。
+
+profiles:
+- name: 甜文党
+  expectations:
+  - CP 关系稳步推进，糖点密集
+  - 虐有度，不长期压抑
+  - HEA 承诺清晰可期
+  delight_triggers:
+  - 糖点与发糖时刻（relationship payoff）
+  - 化学反应高光（chemistry）
+  - 心动钩子（emotion hook）
+  rejection_triggers:
+  - 长期虐恋无缓解
+  - 关系突变无过渡
+  - HEA 承诺被违反
+  review_focus:
+  - chemistry
+  - micro_payoff_density
+  - hea_payoff
+  - hook_quality
+
+- name: 虐恋党
+  expectations:
+  - 虐有因，痛感来自可信的阻碍
+  - 虐后必有实质和解/推进
+  - 人物在虐中成长
+  delight_triggers:
+  - 情感张力与心痛（emotional tension）
+  - 和解高光（reunion payoff）
+  - 人物弧光（character growth）
+  rejection_triggers:
+  - 为虐而虐、无动机的误会
+  - 虐后无推进或突兀原谅
+  - 人物行为崩塌（OOC）
+  review_focus:
+  - emotional_logic
+  - tension_curve
+  - payoff_pattern
+  - hook_quality
+
+- name: 剧情党
+  expectations:
+  - 感情线之外有可追的主线/悬念
+  - 节奏不拖沓
+  - 题材套路有变形不落俗
+  delight_triggers:
+  - 主线推进与反转（plot payoff）
+  - 套路变形（trope twist）
+  - 节奏紧凑（pacing）
+  rejection_triggers:
+  - 主线停滞、纯撒糖无剧情
+  - 套路堆砌无新意
+  - 节奏拖沓
+  review_focus:
+  - trope_satisfaction
+  - strand_balance
+  - payoff_pattern
+
+- name: 人设化学反应读者
+  expectation_profile: demanding
+  expectations:
+  - 人物立体，行为有内在依据
+  - CP 化学反应真实、有层次
+  - 情感节拍完整不缺
+  delight_triggers:
+  - 立体人设与化学反应（chemistry）
+  - 完整情感节拍（beat）
+  - 动机可信的转变
+  rejection_triggers:
+  - 人设崩塌（OOC）
+  - 化学反应生硬或突兀
+  - 关键情感节拍缺失
+  review_focus:
+  - chemistry
+  - emotional_logic
+  - hook_quality
+  - payoff_pattern

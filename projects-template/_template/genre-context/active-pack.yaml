@@ -1,0 +1,10 @@
+primary_genre: scifi
+sub_genre: null
+secondary_genre: null
+confidence: speculated
+loaded_at: "YYYY-MM-DDTHH:MM:SSZ"
+pack_path: "genre-packs/scifi/"
+collaboration_mode: "author-decides-worldview"
+human_confirmed: false
+notes:
+  - "Replace this file after /detect-genre and author confirmation."

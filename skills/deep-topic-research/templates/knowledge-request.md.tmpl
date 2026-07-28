@@ -1,0 +1,51 @@
+---
+request_id: "kr-{date}-{topic}-{seq}"
+direction: "{调研方向名（来自 Step 1 调研方向树）}"
+created_at: "{YYYY-MM-DD}"
+status: "{open | researching | fulfilled | insufficient}"
+---
+
+# KnowledgeRequest — {调研方向名}
+
+## 要解决的原理问题
+
+{这个方向要回答的本质问题。一句话，落到原理层，非现象层。}
+
+例：本书主张"按工作记忆原理重组知识结构"，需要回答——读者工作记忆的容量限制在{本书场景}下具体表现为什么？现有编排方法忽略了哪个机制？
+
+## 为什么需要外部知识
+
+{为什么不能凭作者已有知识下判断？缺什么类型的一手支撑？}
+
+## 知识将注入本书的哪个论断/章节
+
+{具体到论点或章节。这决定本方向的检索目的与评分权重。}
+
+- 注入论点：{brief.yaml 的哪个核心论点 / concept_tree 的哪个节点}
+- 注入章节预设：{若已有方向，填章节；否则填"待大纲"}
+- 检索目的（purpose）：{frontier_inspiration | case_collection | transfer_scouting | trend_validation}
+
+## 第一性原理锚点（来自 Step 1）
+
+```yaml
+primary_principle: "{学科+机制+指标}"
+depth_target: "{本书要讲到 D2/D3/D4}"
+universality_score: "{A/B/C/D}"
+mechanisms: ["{机制词}"]
+measurable_variables: ["{指标}"]
+target_domains: ["{本书场景}"]
+source_domains_to_probe: ["{可迁移的来源领域}"]
+```
+
+## 完成判据
+
+- [ ] QueryPlan 已生成（≥6 条 query，见 `query-plans/{direction}.md`）
+- [ ] 检索操作数达复杂度门槛
+- [ ] 一手全文精读达门槛
+- [ ] 来源覆盖 ≥ 门槛类数
+- [ ] KnowledgeBundle 已产出（见 `bundles/{direction}.yaml`）
+- [ ] knowledge_coverage ≠ insufficient（否则不得回填高置信论点）
+
+## 备注
+
+{作者特别指示 / 已知争议 / 暂停原因}

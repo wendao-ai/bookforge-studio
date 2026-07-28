@@ -1,0 +1,10 @@
+primary_genre: fiction-general
+sub_genre: null
+secondary_genre: null
+confidence: observed
+loaded_at: YYYY-MM-DDTHH:MM:SSZ
+pack_path: genre-packs/fiction-general/
+collaboration_mode: editorial-review
+human_confirmed: true
+notes:
+- Replace this file after /detect-genre and author confirmation.

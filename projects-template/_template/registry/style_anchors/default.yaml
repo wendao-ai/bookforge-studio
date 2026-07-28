@@ -1,0 +1,9 @@
+style_anchor_id: default
+voice: "Define the target voice."
+sentence_rhythm: "Define rhythm."
+lexicon:
+  preferred: []
+  avoided: []
+exemplars: []
+notes:
+  - "Replace after /anchor-style."

@@ -1,0 +1,14 @@
+genre: textbook
+methods:
+- name: 知识路径拓扑正确
+  use_when: When handling 知识路径拓扑正确
+  risk: Do not apply mechanically.
+- name: 认知负荷管理
+  use_when: When handling 认知负荷管理
+  risk: Do not apply mechanically.
+- name: 习题与知识点对齐
+  use_when: When handling 习题与知识点对齐
+  risk: Do not apply mechanically.
+- name: 专家审定
+  use_when: When handling 专家审定
+  risk: Do not apply mechanically.

@@ -1,0 +1,41 @@
+genre: biography
+# 传记项目 memory 扩展。基于共享 memory + 传记专属扩展。
+extensions:
+  subject-archive:
+    description: 传主资料库（访谈/档案/第三方回忆/作品/事件记录）
+    path: genre-context/genre-memory/subject-archive/
+    fields:
+      - item_id
+      - type              # interview/archive/third-party-recollection/work/event
+      - content_summary
+      - source_note       # url_or_citation / publication_date / freshness_status / confidence (observed/inferred/speculated)
+      - conflict_status   # none/partially_conflicting/conflicting
+      - usage_scope       # 已用于哪些章节/论点
+  life-timeline:
+    description: 人生时间线（带日期精度与来源）
+    path: genre-context/genre-memory/life-timeline.yaml
+    fields:
+      - event_id
+      - date              # 带精度
+      - date_precision    # year/month/day
+      - event
+      - source_basis
+      - life_stage        # childhood/growth/achievement/turning/later-life
+  fact-narrative-map:
+    description: 事实-叙事分离映射（每段叙事对应的事实基础）
+    path: genre-context/genre-memory/fact-narrative-map.yaml
+    fields:
+      - passage_ref       # 章节/段落
+      - fact_basis        # 对应 subject-archive item_id
+      - narrative_type    # fact / narrative_reconstruction
+      - confidence
+      - reconstruction_reason  # 若为重构，说明为何及依据
+  source-conflict-log:
+    description: 多源矛盾日志（不得抹平）
+    path: genre-context/genre-memory/source-conflict-log.yaml
+    fields:
+      - conflict_id
+      - topic
+      - sources           # 各方来源 + 各自说法
+      - resolution        # preserved-as-conflict / adopted-side-A / adopted-side-B / open
+      - resolution_reason

@@ -1,0 +1,26 @@
+rules:
+  thesis_drift:
+    level: critical
+    description: 章节必须服务核心论题
+    check: 章节必须服务核心论题
+    action: 阻断 + 回溯评估
+  argument_gap:
+    level: high
+    description: 论证链不得跳步
+    check: 论证链不得跳步
+    action: 标记待复核
+  evidence_mismatch:
+    level: high
+    description: 证据必须支持对应主张
+    check: 证据必须支持对应主张
+    action: 标记待复核
+  concept_order_issue:
+    level: medium
+    description: 概念引入顺序必须可理解
+    check: 概念引入顺序必须可理解
+    action: 警告
+  counterargument_missing:
+    level: medium
+    description: 关键反驳不得缺席
+    check: 关键反驳不得缺席
+    action: 警告

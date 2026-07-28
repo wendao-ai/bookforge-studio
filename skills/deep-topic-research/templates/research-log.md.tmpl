@@ -1,0 +1,74 @@
+# 调研账本（Research Log）— {主题全称}
+
+> ★ 本文件是 `research/` 唯一**常驻上下文**的调研文件。
+> 每完成一条 query / 一篇深读，**立即追加**，绝不"等最后汇总"。
+> source-note / query-plan 细节按需 Read，不常驻上下文。
+
+---
+
+## 主题元信息
+
+- **主题**：{topic}
+- **类型**：{genre}（来自 active-pack）
+- **复杂度**：{light | medium | heavy}（决定下方门槛）
+- **调研方向树**：见 `knowledge-requests/`
+- **基准日期**：{YYYY-MM-DD}（新鲜度判定基准）
+- **领域变化速度**：{fast | normal | slow}
+
+---
+
+## 流程进度
+
+- [ ] Step 1 第一性原理降维（→ 调研方向树）
+- [ ] Step 2 KnowledgeRequest（→ `knowledge-requests/`）
+- [ ] Step 3 QueryPlan（→ `query-plans/`）
+- [ ] Step 4 多源检索（本文件检索账本）
+- [ ] Step 5 全文深读（→ `sources/<type>/`）
+- [ ] Step 6 评分归档 + 喂宪法（→ `bundles/` + `concept_tree.json` / `brief.yaml`）
+
+---
+
+## 检索账本
+
+> 每条 query 执行后立即登记一行。源类型：academic / cross-domain / trends / realtime / anchor。
+
+| # | 日期 | 调研方向 | 源 | 语言 | query | 命中质量(A/B/C/D) | source-note 路径 |
+|---|------|---------|----|----|-------|------------------|-----------------|
+| 1 | {YYYY-MM-DD} | {direction} | academic | en | "{...}" | A | sources/academic/ki-001.md |
+| 2 | | | | | | | |
+
+---
+
+## 充分性校验（由 research_coverage_check.py 填充）
+
+| 指标 | 当前 | 门槛({complexity}) | 达标 |
+|------|------|------------------|------|
+| 检索操作数 | {N} | {30/80/150} | ✅/❌ |
+| 一手全文精读 | {N} | {3/5/8} | ✅/❌ |
+| 来源类型覆盖 | {N} 类 | {3/3/4} | ✅/❌ |
+
+**knowledge_coverage**：{sufficient | partial | insufficient}
+- 若 insufficient：禁止回填高置信核心论点，补调研或诚实降级。
+
+---
+
+## 冲突登记
+
+> 不同来源矛盾必须保留，不得选择性引用。
+
+| 冲突点 | 来源 A（观点/路径） | 来源 B（观点/路径） | conflict_status | 处理 |
+|--------|-------------------|-------------------|----------------|------|
+| | | | {none/partially_conflicting/conflicting} | |
+
+---
+
+## 喂宪法回填记录
+
+> Step 6 回填 constitution 后在此登记，保证可追溯。
+
+| 回填目标 | 回填内容摘要 | 来源 bundle / source-note |
+|---------|------------|--------------------------|
+| `concept_tree.json` | 新增节点：{...} | bundles/{direction}.yaml |
+| `brief.yaml` 核心论点 | {论点} | sources/academic/ki-003.md |
+| `brief.yaml` uniqueness_anchor | {差异化} | bundles/{direction}.yaml |
+| `registry/concepts.yaml` | 术语：{...} | sources/academic/ki-001.md |

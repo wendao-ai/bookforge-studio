@@ -1,0 +1,5 @@
+{"event":"template-created","speaker":"system","summary":"Project history events are appended here.","decisions":[]}
+{"timestamp": "2026-05-18T15:53:08.868425+00:00", "hook": "consistency-engine-check", "status": "block", "message": "Critical consistency finding supplied by hook payload"}
+{"timestamp": "2026-05-18T15:53:08.888252+00:00", "hook": "genre-pack-loader", "status": "ok", "message": "Loaded genre pack scifi"}
+{"timestamp": "2026-05-18T15:53:09.015587+00:00", "hook": "human-checkpoint-gate", "status": "needs_review", "message": "Human approval required for projects/sample-scifi/constitution/brief.yaml"}
+{"timestamp": "2026-05-18T15:53:17.414291+00:00", "hook": "capability-harvest-trigger", "status": "ok", "message": "Capability harvest target ready: capability-library/by-genre/scifi"}

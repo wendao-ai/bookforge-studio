@@ -1,0 +1,16 @@
+genre: romance
+memory_extensions:
+  relationship-state:
+    purpose: 言情小说 memory for relationship-state
+    required: true
+  emotion-beatsheet:
+    purpose: 言情小说 memory for emotion-beatsheet
+    required: true
+  trope-library:
+    purpose: 言情小说 memory for trope-library
+    required: true
+  tension-curve:
+    purpose: 言情小说 memory for tension-curve
+    required: true
+write_policy: Only active project agents may write genre memory after loading the
+  pack.

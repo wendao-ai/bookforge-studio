@@ -1,0 +1,37 @@
+genre: biography
+# 传记结构范式：人生阶段 + 叙事权重 + 时间线-弧光对齐
+paradigm: life-stage-weighted
+stages:
+  - id: childhood
+    name: 童年/出身
+    weight: low-medium
+    purpose: 建立存在根基（时代/地域/阶层/家庭）——对接 /trace-character-foundation 成长环境
+    risk: 不写成流水账，只取塑造特质的事件
+  - id: growth
+    name: 成长/塑造
+    weight: medium
+    purpose: 关键经历塑造性格与信念
+    risk: 关键经历须有 source
+  - id: achievement
+    name: 成就/主要事迹
+    weight: medium-high
+    purpose: 传主的核心贡献/事迹
+    risk: 不堆砌履历，选承载弧光的事迹
+  - id: turning
+    name: 转折/危机
+    weight: highest
+    purpose: 转折选择与代价——人生弧光的核心
+    risk: 转折须事实支撑；代价真实
+  - id: later-life
+    name: 晚年/余响
+    weight: low-medium
+    purpose: 结尾状态与余韵
+    risk: 不强行升华
+weighting_rule: |
+  叙事权重非平均分配。转折期权重最高（承载弧光转折/代价），
+  童年与晚年权重较低（建立根基/收束余韵）。
+  权重分配须在 outline 的 word_budget 体现（转折期章节字数 > 童年晚年）。
+arc_alignment: |
+  人生弧光（/design-character-arc）的转折选择须对齐 turning 阶段；
+  代价须事实支撑（fact-narrative-map 标 fact）；
+  弧光改变不得落在真实人物的不可变区特质——若叙事需要，标 narrative_reconstruction。

@@ -1,0 +1,82 @@
+genre: fiction-general
+
+# 四类目标读者画像，每类有差异化的期望、惊喜触发、拒读触发与审校重点。
+# 至少包含一个 demanding/skeptical 读者（节奏敏感读者）。
+# review_focus 指向 quality-metrics.yaml 中的 metric 名。
+
+profiles:
+- name: 文学读者
+  expectations:
+  - 主题有深度且前后一致
+  - 人物有弧光，行为有内在依据
+  - 叙事语气稳定且贴合风格锚点
+  delight_triggers:
+  - 新鲜的视角与表达（freshness）
+  - 清晰而有质感的书写（clarity）
+  - 主题与人物的高光兑现（payoff）
+  rejection_triggers:
+  - 主题漂移或自相矛盾
+  - 人物行为无动机（OOC）
+  - 转折未经铺垫（unearned turn）
+  review_focus:
+  - theme_consistency
+  - character_depth
+  - voice
+
+- name: 类型小说读者
+  expectations:
+  - 核心承诺清晰且持续推进
+  - 章末有牵引力（想知道接下来）
+  - 推进有节奏，不拖沓
+  delight_triggers:
+  - 兑现时刻（payoff）
+  - 强钩子（hook）
+  - 合理且意外的转折（twist）
+  rejection_triggers:
+  - 承诺违背或长期不兑现（broken promise）
+  - 节奏拖沓（slow pace）
+  - 逻辑混乱（confusing logic）
+  review_focus:
+  - plot_causality
+  - hook_quality
+  - payoff_pattern
+  - pacing
+
+- name: 人物驱动读者
+  expectations:
+  - 人物关系有真实推进
+  - 人物成长可见
+  - 微观情感有兑现
+  delight_triggers:
+  - 关系节拍（relationship beat）
+  - 人物成长瞬间（character growth）
+  - 情感兑现（emotion payoff）
+  rejection_triggers:
+  - 人物行为偏离人设（OOC）
+  - 动机断裂（motivation gap）
+  - 关系突变无过渡
+  review_focus:
+  - character_depth
+  - micro_payoff_density
+  - strand_balance
+
+- name: 节奏敏感读者
+  expectation_profile: demanding
+  expectations:
+  - 每章都有可感知的推进或收获
+  - 三线（主线/关系/世界观）节奏平衡
+  - 伏笔按合理节奏回收
+  delight_triggers:
+  - 紧凑的节奏与张力（rhythm/tension）
+  - 精准的微兑现密度
+  - 及时的伏笔回收
+  rejection_triggers:
+  - 中段失速（pacing sag）
+  - 三线断档（strand gap）
+  - 整章无收获（no micro payoff）
+  - 伏笔长期挂账（foreshadowing debt）
+  review_focus:
+  - pacing
+  - strand_balance
+  - micro_payoff_density
+  - foreshadowing_urgency

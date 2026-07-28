@@ -1,0 +1,121 @@
+genre: webnovel
+
+# 网文质量度量——追读力经济学完整版。
+# 来源：webnovel-writer reading-power-taxonomy + adoption-plan A1-A5，含阶段三剔除的 A2 纯网文套路。
+# 与 fiction-general 的区别：fiction-general 是出版级通用化（剔除纯套路）；本 pack 是网文完整版（套路即生产力）。
+
+metrics:
+  # ============================================================
+  # 追读力经济学（核心，网文生死线）
+  # ============================================================
+  hook_quality:
+    scale: 1-5
+    pass_threshold: 4
+    description: 章末/章内钩子——网文留存的生死线，每章必钩。
+    hook_types: [crisis, mystery, desire, emotion, choice, face-slap-setup]
+    strength_levels:
+      strong: 卷末/大爽点/转折章
+      medium: 普通剧情章
+      weak: 过渡章（过渡章也必须有弱钩子）
+    placement:
+      in_chapter: [mystery, emotion, foreshadow]
+      chapter_end: [crisis, choice, desire, face-slap-setup]
+    golden_three_multiplier: 2.0  # 黄金三章钩子密度加倍
+    guidance: 每章必钩；过渡章不得无钩。前3章（黄金三章）钩子密度加倍，不得有大段铺垫。
+
+  coolpoint_pattern:
+    scale: 1-5
+    pass_threshold: 3
+    description: 爽点模式——网文的核心愉悦，套路即生产力。
+    coolpoint_types:
+      - 装逼打脸：被轻视→当面碾压回去
+      - 扮猪吃虎：隐藏实力→关键时刻一鸣惊人
+      - 越级反杀：以弱胜强
+      - 打脸权威：权威出错→主角纠正/碾压
+      - 反派翻车：主角设局→反派踩进去
+      - 迪化误解：对方脑补主角牛逼（反差爽）
+      - 身份掉马：隐藏身份/实力曝光
+      - 甜蜜超预期：言情向的糖
+      - 收网时刻：布局合龙，对手才发现早进局（智斗向）
+    density_max_gap: 3  # 连续 3 章无爽点 = 追读力红线
+    guidance: 爽点峰谷交替——不得双爽点断层（连续高潮读者疲劳），不得长谷（连续无爽点读者流失）。
+
+  micro_payoff_density:
+    scale: 1-5
+    pass_threshold: 3
+    description: 每章给读者的"小收获"——维持追读的基础密度。
+    payoff_types: [information, relationship, ability, resource, recognition, emotion, clue, face-slap-mini]
+    per_chapter_min: 2  # 网文比 fiction-general（1）要求更高
+    transition_chapter_min: 1
+    guidance: 即使过渡章也必须给读者至少 1 个微兑现（新信息/线索/小爽/关系推进）。
+
+  strand_balance:
+    scale: 1-5
+    pass_threshold: 3
+    description: 三线编织——Quest（主线任务）/Fire（关系/情感）/Constellation（世界观/背景扩展）。
+    target_ratios:
+      quest: "55-65%"
+      fire: "15-25%"
+      constellation: "15-25%"
+    red_lines:
+      quest_consecutive_max: 5  # 主线连续 N 章不碰 Fire/Constellation = 读者疲劳
+      fire_gap_max: 8
+      constellation_gap_max: 10
+    guidance: 三线不得断档。网文尤其忌 Fire 断档（CP/情感线长期缺失 = 掉女频读者与情感向读者）。
+
+  foreshadowing_urgency:
+    scale: 1-5
+    pass_threshold: 3
+    description: 伏笔管理——按紧急度回收，避免百万字烂尾。
+    tier_weights: { core: 3.0, subplot: 2.0, decoration: 1.0 }
+    urgency_formula: "(已过章数 / (目标回收章 - 埋设章)) × tier_weight"
+    guidance: core 伏笔逾期优先回收。网文长篇易烂尾，伏笔登记 + 紧急度是刚需，不是可选。
+
+  # ============================================================
+  # 网文专属维度
+  # ============================================================
+  golden_three_chapters:
+    scale: 1-5
+    pass_threshold: 4
+    description: 黄金三章——网文留存生死线，前3章决定读者走不走。
+    checks:
+      - ch1 钩子强度（冲突/重生/穿越/金手指开局，忌慢热）
+      - ch1-3 金手指亮相
+      - ch3 前第一个小爽点兑现
+      - ch1-3 主角人设立住（记忆点：金手指/性格标签/处境落差）
+    guidance: 前3章不得有大段世界观设定堆砌/心理独白/铺垫。每一章都要有钩子+推进+微兑现。
+
+  pacing_peak_valley:
+    scale: 1-5
+    pass_threshold: 3
+    description: 爽点峰谷节奏——避免双高疲劳或长谷流失。
+    guidance: 高潮章后允许1章缓冲（缓冲章也必有微兑现），不得连续3章无爽点，不得连续2章双高潮。
+
+  update_consistency:
+    scale: 1-5
+    pass_threshold: 4
+    description: 连载连贯——每章独立可读 + 连续追读不懵。
+    guidance: 每章开头有"上章接续"锚点（一句话回顾）；不得依赖读者记忆关键设定（连载读者可能隔天/隔周读）。
+
+  water_content:
+    scale: 1-5
+    pass_threshold: 3
+    description: 水字控制——网文按字数付费易注水，反向度量（分越高水越少）。
+    guidance: 不得有大段重复心理活动/无意义对话/注水描写/同一信息多次复述。每段必须推进情节、人设或伏笔。
+
+  # ============================================================
+  # 基础维度（继承 fiction，但网文调参）
+  # ============================================================
+  plot_causality:
+    scale: 1-5
+    pass_threshold: 3
+    description: 因果链——网文允许金手指，但金手指内的逻辑必须自洽，不得机械降神。
+  character_depth:
+    scale: 1-5
+    pass_threshold: 3
+    description: 人设——网文主角可以相对扁平，但必须有强记忆点（金手指/性格标签/口头禅/反差）。
+  voice:
+    scale: 1-5
+    pass_threshold: 3
+    description: 文风——网文忌文艺腔/AI腔，要求口语化、画面感、节奏明快、短句为主。
+    forbidden: [AI腔, 四字词堆砌, 过度抒情, 欧化长句, 文艺比喻泛滥]

@@ -1,0 +1,14 @@
+genre: romance
+methods:
+- name: 情绪体验精密设计
+  use_when: When handling 情绪体验精密设计
+  risk: Do not apply mechanically.
+- name: 关系转折可信
+  use_when: When handling 关系转折可信
+  risk: Do not apply mechanically.
+- name: 甜虐配比
+  use_when: When handling 甜虐配比
+  risk: Do not apply mechanically.
+- name: 类型承诺兑现
+  use_when: When handling 类型承诺兑现
+  risk: Do not apply mechanically.

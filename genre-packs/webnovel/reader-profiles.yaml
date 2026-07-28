@@ -1,0 +1,78 @@
+genre: webnovel
+
+# 网文四类目标读者画像，差异化。含一个 demanding（养肥党）。
+# review_focus 指向 quality-metrics.yaml 中的 metric 名。
+
+profiles:
+- name: 追更党
+  expectations:
+  - 每章都有继续往下翻的理由（章末钩子）
+  - 稳定更新节奏
+  - 爽点节奏明快，不拖沓
+  delight_triggers:
+  - 章末强钩子（危机/悬念/反转/打脸setup）
+  - 稳定爽点兑现
+  - 主角持续变强/逆袭
+  rejection_triggers:
+  - 章末无钩子（立刻弃书）
+  - 连续多章无爽点
+  - 节奏拖沓/注水
+  review_focus:
+  - hook_quality
+  - coolpoint_pattern
+  - micro_payoff_density
+
+- name: 爽文党
+  expectations:
+  - 爽点密度高（打脸/碾压/装逼）
+  - 主角无敌或持续升级
+  - 简单直接的爽，不要复杂纠葛
+  delight_triggers:
+  - 打脸/装逼打脸/越级反杀/反派翻车
+  - 主角碾压全场
+  - 爽点量级够炸
+  rejection_triggers:
+  - 主角吃亏太久不翻盘
+  - 爽点量级太小（不够炸）
+  - 大段苦情/纠结/文艺
+  review_focus:
+  - coolpoint_pattern
+  - hook_quality
+  - character_depth
+
+- name: 养肥党
+  expectation_profile: demanding
+  expectations:
+  - 长线一致性（百万字不烂尾）
+  - 伏笔有回收
+  - 逻辑自洽（金手指不崩）
+  delight_triggers:
+  - 伏笔精准回收
+  - 长线布局收网
+  - 设定严谨不崩
+  rejection_triggers:
+  - 烂尾/坑不填
+  - 金手指机械降神
+  - 前后矛盾/人设崩塌
+  review_focus:
+  - foreshadowing_urgency
+  - plot_causality
+  - update_consistency
+
+- name: 剧情党
+  expectations:
+  - 智斗/伏笔/逻辑
+  - 主角靠脑力不靠蛮力
+  - 节奏峰谷有设计
+  delight_triggers:
+  - 收网时刻（布局合龙）
+  - 信息差桥段（读者知角色不知）
+  - 智斗碾压
+  rejection_triggers:
+  - 主角无脑无敌
+  - 逻辑硬伤
+  - 节奏失控（双高疲劳或长谷）
+  review_focus:
+  - coolpoint_pattern
+  - pacing_peak_valley
+  - plot_causality

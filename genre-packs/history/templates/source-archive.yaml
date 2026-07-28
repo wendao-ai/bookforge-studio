@@ -1,0 +1,8 @@
+genre: history
+template: source-archive.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

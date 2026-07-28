@@ -1,0 +1,50 @@
+genre: webnovel
+mode: serial-review
+
+# 网文连载审校模式——比 fiction-general 的 editorial-review 更自动化，
+# 因为网文章节量大（日更/周更），但关键创作决策仍须人审。
+#
+# 与 fiction-general (editorial-review) 的区别：
+# - editorial-review: 每章深度人审（出版级，章节量少，质量优先）
+# - serial-review: 高自动化 + 关键决策人审（网文，日更量大，追读力优先）
+
+automation_level: high  # 草稿生成 / 追读力审查 / 水字检查 / 连贯检查 / anti-AI 终检均可自动化
+
+human_required_decisions:
+  # 网文关键创作决策——必人审（不得全自动，agent-genre-affinity 规则）
+  - 金手指类型与代价边界（全书魂）
+  - 主角灰度底线（能写多狠 / 读者面）
+  - 全书卷划分与爽点里程碑（init 阶段规划，百万字不烂尾的根基）
+  - 第一桶金 / 第一次大爽点量级（网文爽感校准）
+  - 感情线配置（无女主 / 单女主 / 多女主）
+  - 结局走向（HE / BE / 开放，影响读者承诺）
+  - reader-promise 的 broken（违背承诺需人审）
+
+auto_handled:
+  # 可自动化的环节——网文日更量大，这些环节交给 skill/agent
+  - 草稿生成（基于章纲 + writing-brief 五段式）
+  - 追读力审计（Hook / Cool-point / Micro-payoff / Strand 四维自动检查）
+  - 水字检查（water_content）
+  - 连载连贯检查（章首接续锚点 / 跨章伏笔状态）
+  - anti-AI 终检（八癖自检）
+  - 卷划分一致性检查（卷末高潮 / 跨卷钩子是否落地）
+
+review_flow:
+  # 网文章节标准审校流
+  - draft（基于章纲 + writing-brief）
+  - reading-power-audit（追读力四维：Hook/Cool-point/Micro-payoff/Strand）
+  - coolpoint-check（爽点峰谷 + 量级）
+  - continuity-check（连载连贯 + 伏笔紧急度）
+  - anti-ai-gate（anti-AI 八癖终检）
+  - human-review（仅关键决策：金手指代价兑现 / reader-promise / 灰度边界）
+  - publish（更新 coolpoint-ledger / face-slap-ledger / foreshadowing-urgency）
+
+batch_review:
+  # 卷末批量人审——每卷结束人审一次卷划分与爽点里程碑
+  trigger: volume_end
+  checks:
+    - 卷末高潮是否兑现
+    - 跨卷钩子是否落地
+    - 本卷爽点里程碑量级递增
+    - core 伏笔回收进度
+    - reader-promise fulfillment 状态

@@ -1,0 +1,66 @@
+genre: textbook
+profiles:
+- name: 学霸型学生
+  expectations:
+  - 教材 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - prerequisite_integrity
+  - cognitive_load
+  - exercise_alignment
+- name: 中等学生
+  expectations:
+  - 教材 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - prerequisite_integrity
+  - cognitive_load
+  - exercise_alignment
+- name: 吃力学生
+  expectations:
+  - 教材 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - prerequisite_integrity
+  - cognitive_load
+  - exercise_alignment
+- name: 自学者
+  expectations:
+  - 教材 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - prerequisite_integrity
+  - cognitive_load
+  - exercise_alignment

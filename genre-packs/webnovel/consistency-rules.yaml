@@ -1,0 +1,90 @@
+rules:
+  # ============================================================
+  # 事实层（blockable，critical）—— 网文的结构性崩塌
+  # ============================================================
+  no_hook_chapter:
+    level: critical
+    description: 每章必须有章末钩子——无钩子章 = 直接掉读者，违反网文核心契约。
+    check: 章末是否有未解决问题/悬念/危机/反转驱动翻页。
+    action: 阻断 + 补钩子
+    impact: 读者在该章末停止追读，留存崩塌。
+    repair: 补章末钩子（危机/悬念/选择/反转）；不得用"他睡了""就这样过了一天"式收束。
+    enforce_in_prose: 正文章末是否实际存在未解决钩子场景（章纲写了 hook ≠ 正文写了 hook；检查正文最后 2-3 段是否落地钩子，而非依赖大纲登记）。
+
+  golden_three_failure:
+    level: critical
+    description: 黄金三章必须达标——前3章决定留存，慢热/无钩子/无金手指亮相 = 开篇即死。
+    check: ch1 钩子强度 + ch1-3 金手指亮相 + ch3 前小爽点 + 主角人设立住。
+    action: 阻断 + 重写黄金三章
+    impact: 前3章流失 = 全书无读者。
+    repair: 重写黄金三章，删铺垫，前置冲突与金手指亮相。
+
+  deus_ex_machina:
+    level: critical
+    description: 金手指不得机械降神——主角可以靠金手指，但金手指内的逻辑必须自洽，不得凭空开新挂解局。
+    check: 主角解局是否靠已建立的金手指/伏笔，而非临时新能力。
+    action: 阻断 + 回溯补铺垫
+    impact: 逻辑崩塌，养肥党/剧情党弃书，口碑崩。
+    repair: 回溯埋伏笔，或用已建立的能力解局；/fix-cascade。
+
+  # ============================================================
+  # 事实层（blockable，high）—— 追读力红线
+  # ============================================================
+  no_coolpoint_streak:
+    level: high
+    description: 连续 3 章无爽点 = 追读力红线。
+    check: 最近 3 章是否有 coolpoint_pattern 兑现。
+    action: 标记待复核 + 出具修复计划
+    impact: 追读力下降，读者疲劳流失。
+    repair: 插入爽点章或微爽点；/fix-cascade。
+
+  strand_gap:
+    level: high
+    description: 三线（Quest/Fire/Constellation）断档超红线。
+    check: 各线最后一次推进距今章数是否超 strand_balance.red_lines（fire_gap_max 8 / constellation_gap_max 10 / quest_consecutive_max 5）。
+    action: 标记待复核 + 出具修复计划
+    impact: 读者疲劳（Fire 断档掉情感向读者，Constellation 断档掉设定党）。
+    repair: 安排断档线推进节拍。
+
+  foreshadowing_overdue:
+    level: high
+    description: core 伏笔严重逾期未回收（烂尾风险）。
+    check: core 伏笔 urgency 是否 > 1.0 且未回收。
+    action: 标记待复核 + 出具回收计划
+    impact: 烂尾风险，养肥党弃书。
+    repair: 安排 core 伏笔回收章；/fix-cascade。
+
+  # ============================================================
+  # 感性层（advisory，medium）—— 体验信号
+  # ============================================================
+  water_content_over:
+    level: medium
+    description: 水字过多——重复心理/无意义对话/注水描写/同一信息多次复述。
+    check: 段落是否推进情节/人设/伏笔，还是有注水。
+    action: 警告并记录
+    impact: 节奏拖沓，读者跳读/弃书。
+    repair: 删注水段；可在 override_rationale 下带理由继续。
+
+  voice_drift:
+    level: medium
+    description: 文风漂移——文艺腔/AI腔/欧化长句，偏离网文口语化节奏。
+    check: 文风是否符合 voice（口语化/画面感/短句）。
+    action: 警告并记录
+    impact: 阅读体验下降，AI 腔触发读者反感。
+    repair: 改口语化短句；消费 /gate-anti-ai-prose。
+
+  update_continuity_gap:
+    level: medium
+    description: 连载连贯缺失——章首无接续锚点，依赖读者记忆。
+    check: 章首是否有上章回顾锚点。
+    action: 警告并记录
+    impact: 连载读者（隔天读）看懵。
+    repair: 章首补一句话接续锚点。
+
+  pacing_peak_valley_violation:
+    level: medium
+    description: 节奏失控——双高疲劳（连续高潮）或长谷（缓冲章无微兑现）。
+    check: 爽点峰谷是否符合 pacing_peak_valley。
+    action: 警告并记录
+    impact: 节奏失衡，读者疲劳或流失。
+    repair: 调整峰谷；可在 override_rationale 下带理由继续。

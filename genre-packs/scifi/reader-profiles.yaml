@@ -1,0 +1,80 @@
+genre: scifi
+
+# 科幻四类目标读者画像，差异化。含一个 demanding（硬核科幻读者）。
+# review_focus 指向 quality-metrics.yaml 中的 metric 名。
+
+profiles:
+- name: 硬核科幻读者
+  expectation_profile: demanding
+  expectations:
+  - 科学推演严谨可信
+  - 世界法则自洽不矛盾
+  - 设定密度高且有据
+  delight_triggers:
+  - 严谨的科学推演（plausibility）
+  - 自洽的世界法则（world coherence）
+  - 硬核设定揭示（hard sf payoff）
+  rejection_triggers:
+  - 科学硬伤或法则冲突
+  - 技术能力无代价扩张
+  - 设定经不起推敲
+  review_focus:
+  - scientific_plausibility
+  - world_coherence
+  - revelation_curve
+
+- name: 设定党读者
+  expectations:
+  - 世界观丰富且有揭示节奏
+  - 设定服务故事而非堆砌
+  - 奇观感与想象力
+  delight_triggers:
+  - 世界观扩展与揭示（constellation）
+  - 奇观感（sense of wonder）
+  - 信息/线索微兑现
+  rejection_triggers:
+  - 长期无世界观推进
+  - 设定堆砌（info dump）
+  - 命名混乱不一致
+  review_focus:
+  - world_coherence
+  - sense_of_wonder
+  - micro_payoff_density
+  - strand_balance
+
+- name: 普通类型小说读者
+  expectations:
+  - 主线清晰有推进
+  - 设定不压故事
+  - 人物可共情
+  delight_triggers:
+  - 主线推进与危机（plot payoff）
+  - 适度奇观（wonder）
+  - 强钩子（hook）
+  rejection_triggers:
+  - 设定过载看不懂
+  - 主线停滞
+  - 节奏拖沓
+  review_focus:
+  - narrative_pacing
+  - hook_quality
+  - payoff_pattern
+  - character_depth
+
+- name: 文学性读者
+  expectations:
+  - 主题有深度（如技术对人性的影响）
+  - 人物有弧光
+  - 叙事有质感
+  delight_triggers:
+  - 主题深度与反思（theme）
+  - 人物弧光（character）
+  - 新鲜的表达（freshness）
+  rejection_triggers:
+  - 主题浅白或漂移
+  - 人物扁平、功能化
+  - 重设定轻人物
+  review_focus:
+  - character_depth
+  - sense_of_wonder
+  - revelation_curve

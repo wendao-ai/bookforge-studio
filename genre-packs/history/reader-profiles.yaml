@@ -1,0 +1,66 @@
+genre: history
+profiles:
+- name: 历史专业读者
+  expectations:
+  - 历史书籍 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - source_reliability
+  - historiography_consistency
+  - narrative_readability
+- name: 历史爱好者
+  expectations:
+  - 历史书籍 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - source_reliability
+  - historiography_consistency
+  - narrative_readability
+- name: 普通大众
+  expectations:
+  - 历史书籍 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - source_reliability
+  - historiography_consistency
+  - narrative_readability
+- name: 质疑论者
+  expectations:
+  - 历史书籍 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - source_reliability
+  - historiography_consistency
+  - narrative_readability

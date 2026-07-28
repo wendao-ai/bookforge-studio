@@ -1,0 +1,10 @@
+title: "Untitled Book"
+author: "author-name"
+language: "zh-CN"
+source_glob: "drafts/chapters/*/v3_polished.md"
+outputs:
+  docx: "typeset/final.docx"
+  epub: "typeset/final.epub"
+  pdf: "typeset/final.pdf"
+notes:
+  - "PDF requires Typst or LaTeX."

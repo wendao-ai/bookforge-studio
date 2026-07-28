@@ -1,0 +1,18 @@
+genre: biography
+mode: subject-ethics-gated
+# 传记人机协作模式：传主伦理边界是 critical 人审门
+requires_approval:
+  - 传主授权状态确认（在世/已故/家属授权/公共人物）
+  - 事实-叙事分离边界（哪些事件可叙事重构）
+  - 敏感事件处理（疾病/争议/未公开隐私）
+  - 在世人物的负面陈述或法律风险内容
+  - 多源矛盾的处理方式（保留争议 vs 采信一方）
+  - 传主核心论点/人生定论
+autonomous:
+  - 草拟事实核查报告
+  - 整理 subject-archive
+  - 运行 quality-metrics 检查
+  - 草拟人生时间线
+critical_note: |
+  传记是 nonfiction 高风险类型，标记为非 fully automated（见 rules/genre-pack.md）。
+  传主伦理、事实-叙事分离、多源矛盾处理必须人审，不得静默放行。

@@ -1,0 +1,142 @@
+{
+  "schema_version": "bookie-author-error-catalog/v1",
+  "purpose": "把 Bookie 内部状态（一致性违规、版本链断裂、调研不足、缺人审等）翻译成作者/责编能看懂的文案，每条带『不修会怎样 + 怎么修 + 修复命令』。面向作者的报告与错误提示统一引用本表。",
+  "severity_mapping": "本表的 severity 是『面向作者的处理级别』，与 consistency-engine 的 4 级问题严重性（critical/high/medium/low）是不同维度。映射关系：critical→must_handle；high→must_handle 或 needs_confirmation；medium→needs_confirmation；low→auto_handled。本表不改动 consistency-engine 的 4 级语义。",
+  "severity_levels": {
+    "must_handle": "必须作者/责编裁决才能继续，系统已停在安全位置",
+    "needs_confirmation": "结果可用，但建议看一眼或确认一个方向",
+    "auto_handled": "系统已自动处理（如跳过缺失引擎），仅告知不打扰"
+  },
+  "errors": [
+    {
+      "code": "consistency.critical_violation",
+      "match": { "contains": ["critical", "违背", "类型创作硬规律", "critical_violation"] },
+      "severity": "must_handle",
+      "title": "本章触碰了类型创作的硬性禁区",
+      "reason": "一致性引擎发现致命问题：可能违背了世界观、史观、知识体系、感情因果等当前类型的核心规律。",
+      "impact": "按审校纪律必须阻断，本章不能进入定稿或排版。",
+      "next_action": "按读者报告里的修复建议做回溯修订；若涉及创作方向取舍，请求作者确认。",
+      "command": "/fix-cascade",
+      "auto_handle": false
+    },
+    {
+      "code": "consistency.high_unresolved",
+      "match": { "contains": ["high", "重要问题", "未出具修复计划", "high_unresolved"] },
+      "severity": "must_handle",
+      "title": "有重要问题还没给出修复计划",
+      "reason": "审校发现了重要级问题，但还没有出具书面修复计划。",
+      "impact": "重要问题不能带入定稿；排版前必须处理。",
+      "next_action": "跑修订级联，把每个重要问题分配为修订、搁置或驳回。",
+      "command": "/fix-cascade",
+      "auto_handle": false
+    },
+    {
+      "code": "chapter-draft.version_chain_broken",
+      "match": { "contains": ["version_chain", "版本链", "旧版本", "mv 覆盖", "version_chain_broken"] },
+      "severity": "must_handle",
+      "title": "草稿版本链断了",
+      "reason": "检测到在旧版本文件上直接编辑或用移动/重命名覆盖，破坏了骨架→定稿的版本快照。",
+      "impact": "版本链不可追溯，无法回退到上一版，违反章节草稿规则。",
+      "next_action": "从完整的上一版快照复制出新版本文件，再在新文件上编辑，保留每版独立文件。",
+      "command": "参考 .claude/rules/chapter-draft.md",
+      "auto_handle": false
+    },
+    {
+      "code": "approval.missing",
+      "match": { "contains": ["人审", "作者确认", "未记录", "approval", "missing_approval"] },
+      "severity": "must_handle",
+      "title": "关键决策还没经过作者确认",
+      "reason": "类型、读者承诺、核心论点、结局、世界观或史观等关键决策尚未记录作者确认。",
+      "impact": "不能进入下游阶段（例如大纲未批准就不能扩展章节计划）。",
+      "next_action": "走人审确认流程，确认事件追加进决策记录。",
+      "command": "在对话中确认后记录到 constitution/dialogue_log.jsonl",
+      "auto_handle": false
+    },
+    {
+      "code": "research.insufficient",
+      "match": { "contains": ["调研充分", "knowledge_coverage", "insufficient", "不达标"] },
+      "severity": "must_handle",
+      "title": "主题调研还不够充分",
+      "reason": "检索数、精读数或来源类型数未达到主题复杂度对应的门槛。",
+      "impact": "会标注调研不充分，拒绝把高置信核心论点回填进宪法——宁可慢，不可假。",
+      "next_action": "继续调研到达标，或诚实降级标注。",
+      "command": "/deep-topic-research",
+      "auto_handle": false
+    },
+    {
+      "code": "style.anchor_missing",
+      "match": { "contains": ["style_anchor", "风格锚点", "对标书", "anchor_missing"] },
+      "severity": "must_handle",
+      "title": "风格还没有对标书支撑",
+      "reason": "选题简报的风格方向没有引用对标书风格库产出的风格锚点。",
+      "impact": "起草期没有可消费的风格约束，风格容易变成形容词堆砌。",
+      "next_action": "先跑对标书调研产出风格锚点，再回填宪法。",
+      "command": "/benchmark-corpus-research",
+      "auto_handle": false
+    },
+    {
+      "code": "outline.risk_unresolved",
+      "match": { "contains": ["open_risks", "结构风险", "字数偏差", "risk_unresolved"] },
+      "severity": "must_handle",
+      "title": "大纲还有未解决的结构风险",
+      "reason": "大纲存在未处理的开放风险，或章节字数分配偏差超过 20%。",
+      "impact": "不能进入扩展章节计划阶段。",
+      "next_action": "处理完开放风险、平衡字数预算后再扩展。",
+      "command": "/synthesize-outline 或 /select-outline-candidate",
+      "auto_handle": false
+    },
+    {
+      "code": "genre.pack_mismatch",
+      "match": { "contains": ["pack_mismatch", "类型不一致", "active-pack", "PROJECT.md"] },
+      "severity": "must_handle",
+      "title": "活动类型对不上",
+      "reason": "项目清单与当前类型包声明的类型不一致。",
+      "impact": "按协作协议必须停下来确认以哪份为准，确认前不得继续。",
+      "next_action": "确认以哪份为准并更新一致，确认事件入决策记录。",
+      "command": "/switch-genre 或手动对齐",
+      "auto_handle": false
+    },
+    {
+      "code": "registry.stale",
+      "match": { "contains": ["registry", "未登记", "新概念", "伏笔未同步", "stale"] },
+      "severity": "needs_confirmation",
+      "title": "本章新概念/伏笔还没登记",
+      "reason": "本章草稿完成后，设定档案还没同步本章新增的概念、承诺或伏笔。",
+      "impact": "后续章节可能引用未登记术语，造成不一致。",
+      "next_action": "跑概念提取/写法沉淀，把本章新事实登记进设定档案。",
+      "command": "/extract-concepts",
+      "auto_handle": false
+    },
+    {
+      "code": "project.not_configured",
+      "match": { "contains": ["no active project", "活动项目", "未配置", "not_configured"] },
+      "severity": "needs_confirmation",
+      "title": "还没选定活动项目",
+      "reason": "尚未确认活动项目就尝试写入。",
+      "impact": "一个 session 只做一本书，写入前必须先确认活动项目。",
+      "next_action": "创建新书或指定已有项目作为活动项目。",
+      "command": "/start-book-project",
+      "auto_handle": false
+    },
+    {
+      "code": "typeset.engine_missing",
+      "match": { "contains": ["engine_missing", "PDF 引擎", "Typst", "LaTeX", "排版引擎"] },
+      "severity": "auto_handled",
+      "title": "排版引擎不可用，已跳过该格式",
+      "reason": "未检测到 PDF 排版引擎（Typst 或 LaTeX）。",
+      "impact": "PDF 未生成，但 DOCX/EPUB（由 Pandoc 产出）仍可用；不会当作静默失败。",
+      "next_action": "本次无需处理；若需 PDF，安装 Typst 或 LaTeX 后重跑。",
+      "command": "/typeset-pdf",
+      "auto_handle": true
+    }
+  ],
+  "fallback": {
+    "severity": "needs_confirmation",
+    "title": "遇到未登记的问题",
+    "reason": "这里遇到一个系统还没登记过的问题。",
+    "impact": "当前不会把它当作已完成。",
+    "next_action": "查阅 .history/events.jsonl 里最近的事件找线索；或把问题与上下文反馈。",
+    "command": "参考 .claude/docs/ 内相关 spec",
+    "auto_handle": false
+  }
+}

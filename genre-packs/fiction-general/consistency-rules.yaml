@@ -1,0 +1,113 @@
+rules:
+  # ============================================================
+  # 事实层（blockable，critical / high）—— 可客观验证的正确性缺陷
+  # 对应 consistency-engine-spec 的 fact-layer checks
+  # ============================================================
+  plot_causality_gap:
+    level: critical
+    description: 关键转折必须有充分因果支撑，禁止巧合救场或未铺垫的突变。
+    check: 关键转折是否有前置因果；是否存在无铺垫的突变。
+    action: 阻断 + 回溯评估
+    impact: 读者无法理解"为什么发生"，破坏对全书逻辑的信任。
+    repair: 回溯补铺垫，或修改转折使其有因可循；必要时 /fix-cascade。
+
+  readability_floor:
+    level: critical
+    description: 可读性底线——关键信息不得缺失，导致读者看不懂"发生了什么/谁在做/为什么"。
+    check: 关键场景的人物/动作/动机/时空是否交代清楚。
+    action: 阻断 + 回溯补全
+    impact: 读者直接卡住，无法进入叙事（HARD-001）。
+    repair: 回溯补全缺失的关键信息；区域重写。
+
+  promise_broken:
+    level: critical
+    description: 承诺违背——明确的章末/核心承诺在后续完全无回应或被违反。
+    check: 已登记的 promise 是否有兑现或有意留白；章末钩子是否完全不兑现。
+    action: 阻断 + 回溯评估
+    impact: 读者感到被欺骗，信任崩塌（HARD-002）。
+    repair: 补兑现或显式标注为长线伏笔；/fix-cascade 修订。
+
+  character_motivation_gap:
+    level: high
+    description: 人物行动必须有动机支撑，行为须符合已建立的人设。
+    check: 关键行动是否有动机依据；是否偏离已建立的人物逻辑。
+    action: 标记待复核 + 出具修复计划
+    impact: 人物不可信，读者出戏（OOC）。
+    repair: 补动机铺垫或调整行动；/fix-cascade。
+
+  promise_unpaid:
+    level: high
+    description: 核心承诺应按节奏兑现或有意留白，不得无限期挂账。
+    check: 核心承诺的兑现进度；是否长期无推进。
+    action: 标记待复核
+    impact: 读者期待长期落空，弃书风险。
+    repair: 制定兑现窗口或显式转为长线；/fix-cascade。
+
+  conflict_vacuum:
+    level: high
+    description: 冲突真空——整章须有问题/目标/代价，不得无冲突空转。
+    check: 本章是否有明确的问题/目标/代价。
+    action: 标记待复核 + 出具修复计划
+    impact: 读者无法回答"这章要解决什么"，推进力丧失（HARD-004）。
+    repair: 重注入冲突或合并到相邻章；/fix-cascade。
+
+  pacing_disaster:
+    level: high
+    description: 节奏灾难——连续多章无任何推进（无新信息/无关系变化/无能力变化/无局势变化）。
+    check: 连续 N 章（N 由题材 profile 的 stagnation_threshold 决定）是否有任一维推进。
+    action: 标记待复核 + 回溯评估
+    impact: 读者感到停滞，追读力归零（HARD-003）。
+    repair: 压缩/合并停滞章节，注入推进；/fix-cascade。
+
+  # ============================================================
+  # 感性层（advisory，medium）—— 体验/节奏信号，不阻断
+  # 对应 consistency-engine-spec 的 experience-layer checks
+  # medium 级可在 override_rationale 下带理由继续（critical 不可）
+  # ============================================================
+  theme_drift:
+    level: medium
+    description: 主题表达不得漂移，须与宪法核心论点前后一致。
+    check: 本章主题表达是否与宪法核心论点一致。
+    action: 警告并记录
+    impact: 主题稀释，全书立意模糊。
+    repair: 对齐核心论点；可在 override_rationale（如 genre_convention）下带理由继续。
+
+  pacing_sag:
+    level: medium
+    description: 中段不得失去推进力。
+    check: 中段章节的推进密度与张力。
+    action: 警告并记录
+    impact: 中段拖沓，读者流失。
+    repair: 提升微兑现密度或注入支线张力。
+
+  strand_quest_overrun:
+    level: medium
+    description: 主线（Quest）连续推进不得超过红线（默认 5 章），须穿插关系线或世界观扩展。
+    check: 主线连续章数是否超 strand_balance.red_lines.quest_consecutive_max。
+    action: 警告并记录
+    impact: 主线疲劳，其他线断档。
+    repair: 穿插 Fire / Constellation 章节。
+
+  strand_fire_gap:
+    level: medium
+    description: 关系线（Fire）断档不得超过红线（默认 10 章）。
+    check: 关系线最后一次推进距今章数是否超 strand_balance.red_lines.fire_gap_max。
+    action: 警告并记录
+    impact: 人物关系停滞，读者情感投入下降。
+    repair: 安排关系线推进节拍。
+
+  strand_constellation_gap:
+    level: medium
+    description: 世界观扩展（Constellation）断档不得超过红线（默认 15 章）。
+    check: 世界观扩展最后一次推进距今数是否超 strand_balance.red_lines.constellation_gap_max。
+    action: 警告并记录
+    impact: 世界观单薄，沉浸感下降。
+    repair: 安排世界观揭示或扩展节拍。
+
+  hook_strength_weak:
+    level: medium
+    description: 章末钩子强度应与章节类型匹配（关键章 strong / 普通章 medium / 过渡章至少 weak）。
+    check: 章末钩子类型与强度是否匹配章节定位。
+    action: 警告并记录
+    impact: 章末牵引力不足，点开下一章的意愿降低。
+    repair: 强化钩子或调整强度定位；可在 override_rationale 下带理由继续。

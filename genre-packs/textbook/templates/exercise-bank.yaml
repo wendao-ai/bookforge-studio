@@ -1,0 +1,8 @@
+genre: textbook
+template: exercise-bank.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes

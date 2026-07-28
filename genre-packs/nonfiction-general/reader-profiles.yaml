@@ -1,0 +1,66 @@
+genre: nonfiction-general
+profiles:
+- name: 专业读者
+  expectations:
+  - 通用非虚构 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - thesis_clarity
+  - argument_rigor
+  - evidence_alignment
+- name: 通识读者
+  expectations:
+  - 通用非虚构 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - thesis_clarity
+  - argument_rigor
+  - evidence_alignment
+- name: 怀疑型读者
+  expectations:
+  - 通用非虚构 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - thesis_clarity
+  - argument_rigor
+  - evidence_alignment
+- name: 实践应用读者
+  expectations:
+  - 通用非虚构 promise is clear
+  - progress feels earned
+  delight_triggers:
+  - freshness
+  - clarity
+  - payoff
+  rejection_triggers:
+  - broken promise
+  - confusing logic
+  - unearned turn
+  review_focus:
+  - thesis_clarity
+  - argument_rigor
+  - evidence_alignment

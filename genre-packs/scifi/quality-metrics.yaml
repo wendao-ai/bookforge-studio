@@ -1,0 +1,81 @@
+genre: scifi
+
+# 科幻小说质量度量。
+# - 前 5 项是科幻特化的基础维度。
+# - reading_power 族做科幻调参：抬高 Constellation（世界观）占比，钩子偏悬念/危机，
+#   微兑现偏信息/线索，并新增 revelation_curve（揭示曲线，科幻核心）。
+
+metrics:
+  # ---------- 科幻基础维度 ----------
+  world_coherence:
+    scale: 1-5
+    pass_threshold: 4
+    description: 世界法则、设定、时空的前后一致性。
+  scientific_plausibility:
+    scale: 1-5
+    pass_threshold: 4
+    description: 科学推演的可信度（硬科幻）或自洽度（软科幻）。
+  sense_of_wonder:
+    scale: 1-5
+    pass_threshold: 4
+    description: 奇观感与求知惊叹——科幻的核心愉悦。
+  narrative_pacing:
+    scale: 1-5
+    pass_threshold: 4
+    description: 叙事节奏——设定揭示与情节推进的平衡。
+  character_depth:
+    scale: 1-5
+    pass_threshold: 4
+    description: 人物动机、弧光与复杂度。
+
+  # ---------- 追读力族（scifi 调参）----------
+  hook_quality:
+    scale: 1-5
+    pass_threshold: 3
+    description: 章末/章内钩子——科幻偏悬念（信息缺口）与危机。
+    hook_types: [crisis, mystery, desire, emotion, choice]
+    preferred: [mystery, crisis, desire]
+    strength_levels: { strong: "卷末/揭示转折", medium: "普通剧情章", weak: "过渡/铺垫章" }
+    placement: { in_chapter: [mystery, emotion], chapter_end: [crisis, choice, desire] }
+    guidance: 科幻优先用悬念钩（未解之谜/规则真相）与危机钩；章末强度不足属 soft。
+
+  payoff_pattern:
+    scale: 1-5
+    pass_threshold: 3
+    description: 兑现结构——科幻关注"揭示"的铺垫与震撼。
+    guidance: 重大揭示前要有线索铺垫（公平性），揭示后要有反响与余波。
+
+  micro_payoff_density:
+    scale: 1-5
+    pass_threshold: 3
+    description: 每章给读者的"小收获"——科幻偏信息/线索（世界观揭示）。
+    payoff_types: [information, relationship, ability, recognition, emotion, clue]
+    preferred: [information, clue, ability]
+    per_chapter_min: 1
+    transition_chapter_min: 1
+    guidance: 过渡章至少 1 个信息/线索微兑现（新设定线索/规则揭示）。
+
+  strand_balance:
+    scale: 1-5
+    pass_threshold: 3
+    description: 三线节奏——scifi 抬高 Constellation（世界观扩展）占比。
+    target_ratios: { quest: "50-60%", fire: "10-20%", constellation: "25-35%" }
+    red_lines:
+      quest_consecutive_max: 5
+      fire_gap_max: 10
+      constellation_gap_max: 8
+    guidance: 世界观扩展断档超 8 章记 medium（strand_constellation_gap）。
+
+  revelation_curve:
+    scale: 1-5
+    pass_threshold: 3
+    description: 揭示曲线——世界真相/技术真相的揭示节奏是否公平且递进。
+    guidance: 揭示须有前置线索（公平性），不得突兀抛出；递进式揭示维持 wonder。
+
+  foreshadowing_urgency:
+    scale: 1-5
+    pass_threshold: 3
+    description: 伏笔管理——科幻的"设定伏笔"是否按紧急度揭示。
+    tier_weights: { core: 3.0, subplot: 2.0, decoration: 1.0 }
+    urgency_formula: "(已过章数 / (目标回收章 - 埋设章)) × tier_weight"
+    guidance: core 设定伏笔（如核心谜题）逾期应优先揭示。

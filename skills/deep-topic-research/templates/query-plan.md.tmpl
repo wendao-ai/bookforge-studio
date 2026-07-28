@@ -1,0 +1,70 @@
+---
+query_plan_id: "qp-{date}-{topic}-{seq}"
+direction: "{调研方向名}"
+principle: "{primary_principle}"
+request_ref: "knowledge-requests/{direction}.md"
+created_at: "{YYYY-MM-DD}"
+---
+
+# QueryPlan — {调研方向名}
+
+> 原理翻译四层：P0 原理名 → P1 机制词 → P2 指标词 → P3 场景词。
+> 每个 primary_principle 至少 6 条 query（academic ≥2、cross-domain ≥2、realtime ≥1、trends ≥1），含中英双语，每条带 derived_from。
+
+## 四层翻译
+
+| 层 | 内容 |
+|----|------|
+| P0 原理名 | {中 / en} |
+| P1 机制词 | {词1、词2…} |
+| P2 指标词 | {指标1、指标2…} |
+| P3 场景词 | {本书场景} |
+
+## queries
+
+```yaml
+queries:
+  - source: "academic"
+    language: "en"
+    query: "\"{原理词}\" \"{机制/指标词}\" review"
+    derived_from: ["primary_principle", "measurable_variables.{x}"]
+    intent: "{寻找前沿研究 / 经典文献 / 综述}"
+  - source: "academic"
+    language: "zh"
+    query: "\"{原理词}\" {机制词} 综述"
+    derived_from: ["primary_principle"]
+    intent: "..."
+  - source: "cross-domain-transfer"
+    language: "{zh|en}"
+    query: "\"{源领域}\" \"{本书场景}\" 迁移"
+    derived_from: ["source_domains_to_probe.{x}", "target_domains.{y}"]
+    intent: "寻找成熟方法迁移"
+  - source: "cross-domain-transfer"
+    language: "{zh|en}"
+    query: "..."
+    derived_from: [...]
+    intent: "..."
+  - source: "trends-standards"
+    language: "{zh|en}"
+    query: "\"{领域}\" 路线图/标准/白皮书 {年份}"
+    derived_from: ["target_domains.{x}"]
+    intent: "方向验证"
+  - source: "realtime-search"
+    language: "{zh|en}"
+    query: "\"{原理词}\" breakthrough/latest/官方 {年份}"
+    derived_from: ["primary_principle"]
+    intent: "最新进展补缺"
+```
+
+## 排除词
+
+{去掉营销软文、泛泛科普、无来源转载的否定词}
+
+## Query 质量门自检
+
+- [ ] 每个 primary_principle ≥ 6 条 query
+- [ ] academic ≥ 2、cross-domain ≥ 2、realtime ≥ 1、trends ≥ 1
+- [ ] 每个 query 含 ≥1 原理词 + ≥1 机制/指标词
+- [ ] 高价值主题含中英双语
+- [ ] 所有 query 有 derived_from
+- [ ] 禁止只用作者原话或主题名检索

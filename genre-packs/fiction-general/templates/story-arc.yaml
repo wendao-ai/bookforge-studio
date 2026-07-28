@@ -1,0 +1,21 @@
+genre: fiction-general
+template: story-arc.yaml
+# 故事弧线档案字段。由 /design-story-arc 编排 /select-plot-engines 产出。
+fields:
+  - id
+  - title
+  - reader_promise          # 读者承诺（来自 brief）
+  # 引擎（/select-plot-engines）
+  - engines                 # 选定 2-3 引擎代号 + 名称
+  - engine_roles            # 主辅关系
+  - engine_structures       # 每引擎结构要素
+  - escalation_ladders      # 每引擎升级阶梯
+  # 结构（structure-paradigm）
+  - structure               # hook/development/complication/deepening/payoff 章节
+  # 对齐
+  - arc_alignment           # 引擎节点 ↔ 人物弧光转折/代价对齐表
+  - stance_conflicts        # 立场冲突节点
+  # 元数据
+  - source
+  - status
+  - notes

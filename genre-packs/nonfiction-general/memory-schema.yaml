@@ -1,0 +1,16 @@
+genre: nonfiction-general
+memory_extensions:
+  thesis-map:
+    purpose: 通用非虚构 memory for thesis-map
+    required: true
+  argument-chain:
+    purpose: 通用非虚构 memory for argument-chain
+    required: true
+  evidence-map:
+    purpose: 通用非虚构 memory for evidence-map
+    required: true
+  concept-path:
+    purpose: 通用非虚构 memory for concept-path
+    required: true
+write_policy: Only active project agents may write genre memory after loading the
+  pack.

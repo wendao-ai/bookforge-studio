@@ -1,0 +1,70 @@
+rules:
+  # ============================================================
+  # 事实层（blockable，critical / high）—— 科幻可客观验证的正确性缺陷
+  # ============================================================
+  physical_law_violation:
+    level: critical
+    description: 新增内容不得违反已建立的物理或世界法则。
+    check: 新增设定/事件是否与已建立的世界法则冲突。
+    action: 阻断 + 回溯评估
+    impact: 世界观崩塌，读者信任归零；科幻核心契约破坏。
+    repair: 回溯修改或显式建立新法则（需作者批准）；/fix-cascade。
+
+  tech_capability_creep:
+    level: critical
+    description: 技术能力不得无代价、无依赖地扩张。
+    check: 新技术是否有 cost/dependency/failure mode/who can access 的约束。
+    action: 阻断 + 回溯评估
+    impact: 技术无约束，张力丧失（万能科技解决一切）。
+    repair: 补代价/依赖/限制；/fix-cascade。
+
+  timeline_contradiction:
+    level: high
+    description: 事件顺序必须匹配已建立的世界时间线。
+    check: 事件时序是否与已记录的 timeline 一致；是否有人物同时出现在两地。
+    action: 标记待复核 + 出具修复计划
+    impact: 时间线混乱，设定可信度下降。
+    repair: 对齐时间线或标注为非线性叙事；/fix-cascade。
+
+  ungrounded_revelation:
+    level: high
+    description: 重大揭示须有前置线索铺垫（悬疑公平性）。
+    check: 重大真相/技术揭示前是否有可追溯的线索。
+    action: 标记待复核 + 出具修复计划
+    impact: 揭示突兀，违反科幻公平性，奇观感打折。
+    repair: 回溯补线索铺垫；/fix-cascade。
+
+  # ============================================================
+  # 感性层（advisory，medium）—— 体验/节奏信号，不阻断
+  # ============================================================
+  info_dump_detection:
+    level: medium
+    description: 设定说明必须服务场景与读者体验，不得堆砌。
+    check: 设定段落是否融入场景，是否有信息过载。
+    action: 警告并记录
+    impact: 读者跳读/弃书，节奏中断。
+    repair: 把设定拆散融入场景或对话；可在 override_rationale 下带理由继续。
+
+  nomenclature_consistency:
+    level: medium
+    description: 专名、机构与技术命名必须前后一致。
+    check: 命名是否与 registry/concepts 登记一致。
+    action: 警告并记录
+    impact: 设定混乱，沉浸感下降。
+    repair: 对齐 registry 命名与别名。
+
+  strand_constellation_gap:
+    level: medium
+    description: 世界观扩展（Constellation）断档不得超过红线（scifi 默认 8 章）。
+    check: 世界观扩展最后一次推进距今章数是否超 strand_balance.red_lines.constellation_gap_max。
+    action: 警告并记录
+    impact: 世界观停滞，奇观感与沉浸感下降。
+    repair: 安排世界观揭示或扩展节拍。
+
+  hook_strength_weak:
+    level: medium
+    description: 章末钩子强度应与章节类型匹配；科幻优先悬念钩/危机钩。
+    check: 章末钩子类型与强度是否匹配章节定位。
+    action: 警告并记录
+    impact: 章末牵引力不足。
+    repair: 强化悬念/危机钩；可在 override_rationale 下带理由继续。

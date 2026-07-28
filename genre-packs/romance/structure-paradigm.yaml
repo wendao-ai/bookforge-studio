@@ -1,0 +1,18 @@
+genre: romance
+core_engine: 情感节拍器 + 关系状态机
+stages:
+- hook
+- development
+- complication
+- deepening
+- payoff
+tracks:
+- reader_promise
+- memory_updates
+- quality_gates
+chapter_requirements:
+- purpose
+- inputs
+- reader_effect
+- dependencies
+- exit_gate

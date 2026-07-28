@@ -1,0 +1,16 @@
+genre: fiction-general
+memory_extensions:
+  story-arc:
+    purpose: 通用虚构 memory for story-arc
+    required: true
+  character-arc:
+    purpose: 通用虚构 memory for character-arc
+    required: true
+  theme-map:
+    purpose: 通用虚构 memory for theme-map
+    required: true
+  promise-ledger:
+    purpose: 通用虚构 memory for promise-ledger
+    required: true
+write_policy: Only active project agents may write genre memory after loading the
+  pack.

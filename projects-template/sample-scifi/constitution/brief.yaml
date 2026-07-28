@@ -1,0 +1,29 @@
+project_id: sample-scifi
+title: Sample scifi Book
+author: author-name
+genre_decision:
+  primary_genre: scifi
+  sub_genre: null
+  secondary_genre: null
+  confidence: observed
+  approval_status: approved
+core_promise: State the reader promise.
+target_readers:
+- Primary reader
+style_direction:
+  voice: Describe voice.
+  pacing: Describe pacing.
+scope:
+  target_length: 80000 words
+  included:
+  - Main scope item
+  non_goals:
+  - Out-of-scope item
+uniqueness_anchor:
+  mainstream_expectation: What nearby works usually do.
+  book_difference: How this project differs.
+open_questions:
+- id: q1
+  question: What must the author decide before outlining?
+  status: open
+approvals: []

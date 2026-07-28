@@ -1,0 +1,7 @@
+foreshadowing:
+  - id: f001
+    setup: "Template setup."
+    payoff: "Template payoff."
+    setup_chapter: null
+    payoff_chapter: null
+    status: planned

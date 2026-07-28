@@ -1,0 +1,7 @@
+concepts:
+  - id: c001
+    name: "Template Concept"
+    definition: "Replace with project concept."
+    first_appearance: null
+    aliases: []
+    status: draft

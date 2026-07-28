@@ -1,0 +1,14 @@
+genre: history
+methods:
+- name: 史料可信度
+  use_when: When handling 史料可信度
+  risk: Do not apply mechanically.
+- name: 史观一致
+  use_when: When handling 史观一致
+  risk: Do not apply mechanically.
+- name: 叙事与论证平衡
+  use_when: When handling 叙事与论证平衡
+  risk: Do not apply mechanically.
+- name: 时间线管理
+  use_when: When handling 时间线管理
+  risk: Do not apply mechanically.

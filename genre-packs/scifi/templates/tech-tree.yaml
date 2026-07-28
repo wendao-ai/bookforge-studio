@@ -1,0 +1,8 @@
+genre: scifi
+template: tech-tree.yaml
+fields:
+- id
+- purpose
+- source
+- status
+- notes
